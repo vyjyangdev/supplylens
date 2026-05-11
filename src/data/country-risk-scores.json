@@ -1,0 +1,373 @@
+{
+  "CHN": {
+    "political": 50,
+    "hazard": 42,
+    "trade": 72,
+    "composite": 52.7,
+    "factors": ["Active rare earth and gallium export licensing controls", "US-China semiconductor trade war and reciprocal tariffs", "Taiwan Strait geopolitical tension elevates regional risk"]
+  },
+  "TWN": {
+    "political": 35,
+    "hazard": 65,
+    "trade": 10,
+    "composite": 39.3,
+    "factors": ["Cross-strait military pressure from PRC", "High seismic and typhoon exposure (M6.8+ earthquakes annually)", "Extreme semiconductor concentration risk — 60%+ of leading-edge global capacity"]
+  },
+  "JPN": {
+    "political": 12,
+    "hazard": 72,
+    "trade": 8,
+    "composite": 32.0,
+    "factors": ["High seismic exposure — Pacific Ring of Fire", "Specialty chemical and resin supply vulnerabilities", "Stable governance with strong rule of law"]
+  },
+  "KOR": {
+    "political": 20,
+    "hazard": 25,
+    "trade": 8,
+    "composite": 18.8,
+    "factors": ["North Korean missile program elevates geopolitical risk", "Memory chip market cyclicality creates price volatility", "Strong institutional governance and trade relationships"]
+  },
+  "VNM": {
+    "political": 30,
+    "hazard": 58,
+    "trade": 18,
+    "composite": 36.8,
+    "factors": ["Seasonal typhoon and flood exposure in manufacturing corridors", "US trade investigation risk as China+1 capacity builds", "Single-party governance with improving business environment"]
+  },
+  "THA": {
+    "political": 38,
+    "hazard": 52,
+    "trade": 15,
+    "composite": 37.2,
+    "factors": ["History of political coups and military governance", "Eastern Industrial Corridor flood risk (2011 HDD crisis precedent)", "High concentration in hard drive and automotive manufacturing"]
+  },
+  "IND": {
+    "political": 40,
+    "hazard": 45,
+    "trade": 25,
+    "composite": 38.0,
+    "factors": ["Regional security tensions with Pakistan and China border disputes", "Monsoon flooding and cyclone exposure in coastal manufacturing zones", "Import substitution policies and PLI scheme create regulatory complexity"]
+  },
+  "PHL": {
+    "political": 42,
+    "hazard": 78,
+    "trade": 15,
+    "composite": 47.9,
+    "factors": ["Highest typhoon frequency globally — 20+ landfalls per year", "High seismicity on Pacific Ring of Fire", "Governance challenges and corruption risk in contract manufacturing"]
+  },
+  "IDN": {
+    "political": 35,
+    "hazard": 75,
+    "trade": 20,
+    "composite": 45.3,
+    "factors": ["Extreme geological hazard: volcanoes, earthquakes, tsunamis", "Nickel export ban and processing localization mandates", "Decentralized governance creates permitting unpredictability"]
+  },
+  "MYS": {
+    "political": 28,
+    "hazard": 30,
+    "trade": 12,
+    "composite": 24.7,
+    "factors": ["Political coalition instability and frequent government changes", "Semiconductor packaging hub faces US export control scrutiny", "Relatively low natural hazard exposure for Southeast Asia"]
+  },
+  "SGP": {
+    "political": 12,
+    "hazard": 10,
+    "trade": 5,
+    "composite": 9.6,
+    "factors": ["Stable, transparent governance and rule of law", "Minimal natural hazard exposure due to equatorial location", "Global free trade hub with minimal trade restrictions"]
+  },
+  "BGD": {
+    "political": 45,
+    "hazard": 68,
+    "trade": 20,
+    "composite": 46.8,
+    "factors": ["Recurring political instability and labor unrest in garment sector", "Cyclone and monsoon flood exposure across low-lying delta", "Infrastructure constraints limit supply chain resilience"]
+  },
+  "PAK": {
+    "political": 72,
+    "hazard": 50,
+    "trade": 30,
+    "composite": 53.8,
+    "factors": ["Severe political and economic instability, IMF dependency", "Flooding and seismic risk in manufacturing regions", "India-Pakistan tensions periodically disrupt cross-border trade"]
+  },
+  "LKA": {
+    "political": 42,
+    "hazard": 35,
+    "trade": 28,
+    "composite": 36.1,
+    "factors": ["Recent economic crisis and IMF restructuring overhang", "Moderate cyclone and tsunami exposure from Indian Ocean", "Trade policy uncertainty during post-crisis recovery"]
+  },
+  "MMR": {
+    "political": 82,
+    "hazard": 40,
+    "trade": 70,
+    "composite": 64.3,
+    "factors": ["Military junta governance since 2021 coup — broad Western sanctions", "Forced labor concerns trigger UFLPA and EU import bans", "Active internal armed conflict disrupts logistics corridors"]
+  },
+  "KHM": {
+    "political": 38,
+    "hazard": 32,
+    "trade": 25,
+    "composite": 32.7,
+    "factors": ["Autocratic single-party rule with limited judicial independence", "US-Cambodia trade tensions over garment origin verification", "Moderate flood exposure from Mekong River basin"]
+  },
+  "TUR": {
+    "political": 55,
+    "hazard": 48,
+    "trade": 20,
+    "composite": 43.8,
+    "factors": ["High seismicity — 2023 Kahramanmaraş M7.8 earthquake devastated industrial zones", "Currency volatility and inflation create cost unpredictability", "Geopolitical positioning between NATO and Russia creates export control complexity"]
+  },
+  "DEU": {
+    "political": 10,
+    "hazard": 18,
+    "trade": 5,
+    "composite": 11.6,
+    "factors": ["Stable democratic governance with strong rule of law", "EU CSDDD enforcement increases supply chain due diligence requirements", "Energy cost pressures following Russia gas supply disruption"]
+  },
+  "FRA": {
+    "political": 18,
+    "hazard": 18,
+    "trade": 5,
+    "composite": 14.8,
+    "factors": ["Periodic labor strikes and social unrest", "EU CSDDD and CBAM regulatory compliance requirements", "Stable governance within EU framework"]
+  },
+  "GBR": {
+    "political": 15,
+    "hazard": 15,
+    "trade": 5,
+    "composite": 12.5,
+    "factors": ["Post-Brexit trade friction with EU increases customs complexity", "Stable governance and independent judiciary", "Low natural hazard exposure"]
+  },
+  "ITA": {
+    "political": 20,
+    "hazard": 35,
+    "trade": 5,
+    "composite": 21.5,
+    "factors": ["Frequent government changes and political coalition fragility", "Seismic and volcanic risk in Southern Italy and Sicily", "High public debt limits economic resilience"]
+  },
+  "ESP": {
+    "political": 15,
+    "hazard": 20,
+    "trade": 5,
+    "composite": 14.3,
+    "factors": ["Regional separatism (Catalonia) creates occasional political uncertainty", "Drought and wildfire risk in southern regions", "Stable EU membership with open trade policy"]
+  },
+  "NLD": {
+    "political": 8,
+    "hazard": 20,
+    "trade": 5,
+    "composite": 11.5,
+    "factors": ["Major semiconductor equipment exporter (ASML) under US pressure for export controls", "Flood risk mitigated by world-class dyke infrastructure", "Stable governance and key EU trade hub (Rotterdam)"]
+  },
+  "POL": {
+    "political": 18,
+    "hazard": 15,
+    "trade": 8,
+    "composite": 14.5,
+    "factors": ["Rule-of-law tensions with EU judiciary under prior government", "Growing eastern EU manufacturing hub for automotive and electronics", "Low natural hazard exposure"]
+  },
+  "CZE": {
+    "political": 12,
+    "hazard": 15,
+    "trade": 5,
+    "composite": 11.3,
+    "factors": ["Stable parliamentary democracy with strong institutional frameworks", "Key EU automotive and electronics manufacturing base", "Low natural hazard exposure"]
+  },
+  "ROU": {
+    "political": 22,
+    "hazard": 30,
+    "trade": 8,
+    "composite": 21.3,
+    "factors": ["Corruption risk in public procurement and regulatory environment", "Seismic risk in Carpathian arc (Vrancea seismic zone)", "Growing nearshore manufacturing with EU compliance requirements"]
+  },
+  "HUN": {
+    "political": 28,
+    "hazard": 18,
+    "trade": 18,
+    "composite": 22.0,
+    "factors": ["EU rule-of-law concerns and illiberal democratic backsliding", "Heavy Chinese EV and battery investment raises supply chain scrutiny", "Strategic geography between East and West creates trade policy complexity"]
+  },
+  "CHE": {
+    "political": 5,
+    "hazard": 12,
+    "trade": 5,
+    "composite": 7.5,
+    "factors": ["Exceptional political stability with direct democracy", "Low natural hazard exposure with strong disaster preparedness", "Neutral trade policy and strong intellectual property protections"]
+  },
+  "SWE": {
+    "political": 8,
+    "hazard": 8,
+    "trade": 5,
+    "composite": 7.3,
+    "factors": ["NATO accession reduces historical neutrality risks", "Minimal natural hazard exposure in Nordic region", "Transparent governance with strong anti-corruption measures"]
+  },
+  "IRL": {
+    "political": 10,
+    "hazard": 12,
+    "trade": 5,
+    "composite": 9.5,
+    "factors": ["EU hub for US tech and pharma multinationals with stable investment climate", "Low natural hazard exposure", "Corporate tax regime attracts supply chain headquarters"]
+  },
+  "AUT": {
+    "political": 8,
+    "hazard": 20,
+    "trade": 5,
+    "composite": 11.5,
+    "factors": ["Stable coalition governance with strong rule of law", "Alpine flood and avalanche risk, but well-managed", "Central EU location with strong industrial supply base"]
+  },
+  "BEL": {
+    "political": 12,
+    "hazard": 12,
+    "trade": 5,
+    "composite": 10.3,
+    "factors": ["Chronic coalition government formation difficulties", "Key EU logistics hub (Antwerp port)", "Low natural hazard exposure"]
+  },
+  "PRT": {
+    "political": 10,
+    "hazard": 25,
+    "trade": 5,
+    "composite": 14.0,
+    "factors": ["Stable democracy with improving economic fundamentals", "Wildfire and drought risk in summer months", "Growing nearshore manufacturing and tech investment"]
+  },
+  "USA": {
+    "political": 15,
+    "hazard": 28,
+    "trade": 8,
+    "composite": 17.8,
+    "factors": ["Political polarization creates Section 232/301 tariff policy uncertainty", "Hurricane, tornado, and wildfire exposure in manufacturing regions", "CHIPS Act and IRA creating reshoring incentive complexity"]
+  },
+  "CAN": {
+    "political": 8,
+    "hazard": 20,
+    "trade": 8,
+    "composite": 12.2,
+    "factors": ["US-Canada trade tensions and retaliatory tariff risk", "Wildfire and extreme weather exposure in western provinces", "Stable governance with USMCA trade framework"]
+  },
+  "MEX": {
+    "political": 48,
+    "hazard": 45,
+    "trade": 12,
+    "composite": 38.0,
+    "factors": ["Organized crime and cartel activity disrupts logistics corridors", "Seismic risk and hurricane exposure on Pacific and Gulf coasts", "USMCA nearshoring boom creates infrastructure strain"]
+  },
+  "BRA": {
+    "political": 45,
+    "hazard": 38,
+    "trade": 22,
+    "composite": 36.8,
+    "factors": ["Political polarization and institutional uncertainty", "Flooding and drought affecting industrial south and northeast", "Complex import tariff regime and local content requirements"]
+  },
+  "ARG": {
+    "political": 50,
+    "hazard": 32,
+    "trade": 35,
+    "composite": 40.0,
+    "factors": ["Chronic economic instability with currency controls and inflation", "History of sovereign default and capital controls", "Protectionist trade policies limit import reliability"]
+  },
+  "COL": {
+    "political": 52,
+    "hazard": 50,
+    "trade": 18,
+    "composite": 42.8,
+    "factors": ["Security risks from guerrilla and criminal organizations in industrial regions", "Earthquake, volcano, and landslide exposure across Andean terrain", "Improving but still unpredictable regulatory environment"]
+  },
+  "ZAF": {
+    "political": 55,
+    "hazard": 28,
+    "trade": 15,
+    "composite": 35.6,
+    "factors": ["Load-shedding power outages severely disrupt manufacturing output", "Port infrastructure degradation at Durban and Cape Town", "Social instability and high crime rate increase operational risk"]
+  },
+  "NGA": {
+    "political": 70,
+    "hazard": 42,
+    "trade": 28,
+    "composite": 49.7,
+    "factors": ["Political instability and insurgency in northern regions (Boko Haram)", "Port congestion at Apapa chronically severe", "Currency restrictions and FX availability constrain imports"]
+  },
+  "KEN": {
+    "political": 48,
+    "hazard": 38,
+    "trade": 22,
+    "composite": 38.0,
+    "factors": ["Recurring political disputes around elections", "Drought and flood risk affecting logistics infrastructure", "Growing manufacturing base with improving governance"]
+  },
+  "ETH": {
+    "political": 55,
+    "hazard": 42,
+    "trade": 30,
+    "composite": 44.2,
+    "factors": ["Tigray conflict aftermath and ongoing regional ethnic tensions", "Drought and food insecurity affect workforce stability", "Currency shortage and FX rationing complicate import financing"]
+  },
+  "EGY": {
+    "political": 55,
+    "hazard": 22,
+    "trade": 28,
+    "composite": 36.7,
+    "factors": ["Suez Canal transit disruption from Red Sea Houthi attacks increases routing pressure", "IMF-dependent economy with currency and inflation instability", "Import licensing restrictions and FX shortages intermittent"]
+  },
+  "MAR": {
+    "political": 35,
+    "hazard": 28,
+    "trade": 20,
+    "composite": 28.8,
+    "factors": ["Authoritarian political system with limited civil liberties", "2023 Al Haouz earthquake highlighted seismic risk", "Growing EU nearshoring hub with improving trade access"]
+  },
+  "SAU": {
+    "political": 30,
+    "hazard": 18,
+    "trade": 15,
+    "composite": 22.1,
+    "factors": ["Regional conflict exposure from Yemen war and Iranian tensions", "Low natural hazard exposure in most industrial zones", "Oil revenue dependency creates economic vulnerability to energy price shifts"]
+  },
+  "ARE": {
+    "political": 20,
+    "hazard": 12,
+    "trade": 12,
+    "composite": 15.2,
+    "factors": ["Stable authoritarian governance with strong business environment", "Strategic free trade zone network (Jebel Ali)", "Regional conflict spillover risk from Middle East instability"]
+  },
+  "ISR": {
+    "political": 45,
+    "hazard": 15,
+    "trade": 15,
+    "composite": 27.0,
+    "factors": ["Active regional conflict since October 2023 disrupts operations and workforce", "Seismic risk along Dead Sea Transform fault", "Technology export controls and dual-use scrutiny for defense components"]
+  },
+  "IRN": {
+    "political": 88,
+    "hazard": 20,
+    "trade": 95,
+    "composite": 66.0,
+    "factors": ["Comprehensive US, EU, and UN sanctions prohibit most trade", "Designated state sponsor of terrorism — severe legal exposure for buyers", "Significant seismic risk, but sanctions make sourcing legally prohibited"]
+  },
+  "AUS": {
+    "political": 8,
+    "hazard": 35,
+    "trade": 8,
+    "composite": 17.5,
+    "factors": ["Stable liberal democracy with strong rule of law", "Bushfire, cyclone, and flood exposure particularly in Queensland and NSW", "Critical minerals exporter with stable trade policy"]
+  },
+  "NZL": {
+    "political": 7,
+    "hazard": 55,
+    "trade": 8,
+    "composite": 24.1,
+    "factors": ["Exceptionally high seismic and volcanic hazard (Canterbury 2011, Kaikoura 2016)", "Stable transparent governance with low corruption", "Remote geography limits manufacturing supply chain role"]
+  },
+  "RUS": {
+    "political": 75,
+    "hazard": 22,
+    "trade": 92,
+    "composite": 60.7,
+    "factors": ["Comprehensive G7 and EU sanctions following Ukraine invasion", "Active war economy — extreme geopolitical risk", "SWIFT exclusion and payment rail disruption make transactions legally and operationally impossible"]
+  },
+  "UKR": {
+    "political": 80,
+    "hazard": 20,
+    "trade": 35,
+    "composite": 47.8,
+    "factors": ["Active armed conflict with Russia causes direct infrastructure destruction", "Neon gas supply disruption (Ukraine produces ~40% of global supply for semiconductor fabs)", "Western allied support stabilizes some export flows but war risk is acute"]
+  }
+}

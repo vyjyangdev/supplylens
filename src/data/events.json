@@ -1,0 +1,352 @@
+[
+  {
+    "id": "evt-001",
+    "date": "2025-04-07",
+    "title": "China Imposes Export Licensing Controls on Seven Critical Rare Earth Elements",
+    "description": "China's Ministry of Commerce announced mandatory export licensing requirements for terbium, dysprosium, yttrium, gadolinium, lutetium, scandium, and europium — elements essential for EV motors, wind turbines, F-35 jet fighters, and industrial robots. Exporters must obtain individual government approval for each shipment, with no stated approval timeline. The move followed US restrictions on advanced semiconductor equipment sales to Chinese manufacturers and is expected to cause significant disruption across defense, automotive, and clean energy supply chains.",
+    "countries": ["CHN", "USA", "DEU", "JPN", "KOR"],
+    "type": "trade_policy",
+    "severity": "critical",
+    "source": "China Ministry of Commerce"
+  },
+  {
+    "id": "evt-002",
+    "date": "2025-05-12",
+    "title": "Ford Halts Chicago Assembly Plant Due to Rare Earth Magnet Shortage",
+    "description": "Ford Motor Company announced an indefinite shutdown of its Chicago Assembly Plant — which produces the Ford Explorer and Lincoln Aviator — citing inability to source sufficient neodymium-iron-boron permanent magnets after China's April export controls took effect. The plant employs approximately 5,800 workers. Ford stated it was urgently qualifying alternative suppliers in Japan, Canada, and Vietnam but could not provide a restart timeline.",
+    "countries": ["CHN", "USA"],
+    "type": "infrastructure",
+    "severity": "high",
+    "source": "Reuters"
+  },
+  {
+    "id": "evt-003",
+    "date": "2025-06-03",
+    "title": "Chinese Military Exercises Around Taiwan Disrupt Regional Shipping Lanes",
+    "description": "The People's Liberation Army Navy conducted large-scale exercises encircling Taiwan, temporarily closing maritime exclusion zones that intersect major shipping lanes connecting Taiwan to Japan, South Korea, and Southeast Asia. Several container vessels rerouted south, adding 2–4 days to transit times. TSMC and other semiconductor firms activated contingency protocols, though no production disruption was reported.",
+    "countries": ["TWN", "CHN", "JPN", "KOR"],
+    "type": "geopolitical",
+    "severity": "high",
+    "source": "US 7th Fleet / Reuters"
+  },
+  {
+    "id": "evt-004",
+    "date": "2025-06-15",
+    "title": "US Raises Section 232 Steel and Aluminum Tariffs to 50%",
+    "description": "The US Commerce Department raised Section 232 tariffs on steel imports to 50% and aluminum to 25%, up from 25% and 10% respectively, affecting imports from most countries except those with active quota agreements. US manufacturers of automotive stampings, HVAC equipment, and industrial machinery warned of 8–15% cost increases in fabricated metal components. Canada and Mexico sought emergency USMCA consultations.",
+    "countries": ["USA", "CAN", "MEX", "BRA", "KOR", "TUR"],
+    "type": "trade_policy",
+    "severity": "high",
+    "source": "US Commerce Department"
+  },
+  {
+    "id": "evt-005",
+    "date": "2025-01-24",
+    "title": "UFLPA Entity List Expanded: Zijin Mining Group Added",
+    "description": "US Customs and Border Protection added Zijin Mining Group — a major Chinese producer of copper, gold, and lithium — to the Uyghur Forced Labor Prevention Act entity list, requiring importers to prove by clear and convincing evidence that no forced labor was used in production. The addition affects copper cathodes, lithium carbonate, and cobalt sulfate exported from Zijin's Xinjiang operations. Companies sourcing from Zijin faced immediate detention and possible seizure of shipments at US ports.",
+    "countries": ["CHN", "USA"],
+    "type": "regulatory",
+    "severity": "high",
+    "source": "US Customs and Border Protection"
+  },
+  {
+    "id": "evt-006",
+    "date": "2025-04-22",
+    "title": "Canada Imposes 25% Retaliatory Tariffs on US Goods",
+    "description": "The Government of Canada implemented 25% counter-tariffs on C$30 billion worth of US manufactured goods including steel products, automotive parts, and consumer goods in response to US Section 232 and IEEPA tariff actions. The tariffs created cost disruptions for North American supply chains operating under USMCA and forced re-evaluation of cross-border sourcing strategies for auto OEMs with integrated US-Canada-Mexico production.",
+    "countries": ["CAN", "USA", "MEX"],
+    "type": "trade_policy",
+    "severity": "medium",
+    "source": "Global Affairs Canada"
+  },
+  {
+    "id": "evt-007",
+    "date": "2025-05-22",
+    "title": "India-Pakistan Military Standoff Disrupts South Asian Logistics",
+    "description": "Following a terrorist attack in Indian-administered Kashmir, India suspended the Indus Waters Treaty and closed the Wagah-Attari land crossing — the primary commercial route between the two countries. Pakistani airspace was closed to Indian carriers, adding hours to air freight routes across South Asia. Textile and apparel sourcing spanning both countries faced acute disruption, with buyers sourcing from Karachi and Lahore experiencing shipment delays of 10–21 days.",
+    "countries": ["IND", "PAK"],
+    "type": "geopolitical",
+    "severity": "medium",
+    "source": "Bloomberg"
+  },
+  {
+    "id": "evt-008",
+    "date": "2025-06-08",
+    "title": "Bangladesh Garment Factory Strikes Shut 40% of Dhaka Facilities",
+    "description": "Labor unions representing over 500,000 garment workers launched a general strike across Dhaka's Ashulia industrial district, demanding minimum wage increases in response to rising food inflation. Approximately 1,800 factories suspended operations for 6–9 days. Global fashion retailers and electronics enclosure buyers with heavy Bangladesh exposure were forced to airfreight orders or activate secondary suppliers in Vietnam and Cambodia.",
+    "countries": ["BGD"],
+    "type": "labor",
+    "severity": "medium",
+    "source": "AFP / Dhaka Tribune"
+  },
+  {
+    "id": "evt-009",
+    "date": "2025-07-05",
+    "title": "Apapa Port Congestion Crisis — Nigeria",
+    "description": "Container dwell times at Apapa port in Lagos surpassed 28 days as terminal equipment failures and customs processing backlogs combined with an 18% surge in import volumes. Multiple shipping lines placed Nigeria on the surcharge watchlist and some temporarily suspended calls. Manufacturers sourcing raw materials and components through Lagos faced 4–7 week delays in customs release, triggering production disruptions at pharmaceutical and electronics assembly plants.",
+    "countries": ["NGA"],
+    "type": "infrastructure",
+    "severity": "medium",
+    "source": "Seatrade Maritime / Bloomberg"
+  },
+  {
+    "id": "evt-010",
+    "date": "2025-07-18",
+    "title": "Red Sea Shipping Disruptions Persist — Insurance Premiums 800% Above Pre-Crisis Level",
+    "description": "Houthi missile and drone attacks on commercial vessels in the Red Sea and Gulf of Aden continued with no resolution in sight, maintaining the diversion of over 80% of Asia-Europe container traffic around the Cape of Good Hope. War risk insurance premiums for Red Sea transits reached 0.7% of vessel value per voyage — 8x the pre-crisis baseline. Average Asia-Europe transit times remained 12–14 days longer than the Suez Canal route.",
+    "countries": ["EGY", "SAU", "NLD", "DEU"],
+    "type": "geopolitical",
+    "severity": "high",
+    "source": "Lloyd's of London / BIMCO"
+  },
+  {
+    "id": "evt-011",
+    "date": "2025-07-29",
+    "title": "Typhoon Ampil Makes Landfall in Northern Philippines — Manufacturing Disruption",
+    "description": "Typhoon Ampil struck Luzon with sustained winds of 175 km/h, causing widespread flooding in the PEZA-administered Laguna Technopark and Cavite Economic Zone. Approximately 65 electronics assembly plants and cable manufacturing facilities suspended operations for 5–12 days. Flood damage to road infrastructure delayed component deliveries for an additional 2–3 weeks as cleanup proceeded.",
+    "countries": ["PHL"],
+    "type": "natural_disaster",
+    "severity": "medium",
+    "source": "PAGASA / Philippine NDRRMC"
+  },
+  {
+    "id": "evt-012",
+    "date": "2025-08-05",
+    "title": "Magnitude 6.8 Earthquake Strikes Hualien County, Taiwan",
+    "description": "A M6.8 earthquake with epicenter in Hualien County caused structural damage to several buildings and temporary power disruptions across northern Taiwan. TSMC activated its earthquake response protocol, pausing production at Hsinchu Science Park fabs for 6–9 hours for equipment inspection. No significant production loss was reported, but the event reinforced concerns about seismic exposure for global semiconductor supply chains concentrated in Taiwan.",
+    "countries": ["TWN"],
+    "type": "natural_disaster",
+    "severity": "medium",
+    "source": "USGS / CWA Taiwan"
+  },
+  {
+    "id": "evt-013",
+    "date": "2025-08-14",
+    "title": "Sinaloa Cartel Roadblocks Disrupt Monterrey Auto Parts Logistics",
+    "description": "Organized crime groups associated with the Sinaloa Cartel erected roadblocks on federal highways connecting Monterrey's industrial parks to US border crossings at Laredo and McAllen, TX. Trucking companies suspended operations for 3–5 days as security forces regained control. Several auto OEMs operating just-in-time manufacturing on the US side — including General Motors and Toyota — reduced production rates due to missing stampings and harness components.",
+    "countries": ["MEX", "USA"],
+    "type": "geopolitical",
+    "severity": "medium",
+    "source": "El Economista / Reuters"
+  },
+  {
+    "id": "evt-014",
+    "date": "2025-08-18",
+    "title": "Thailand Eastern Industrial Corridor Flash Floods — HDD and Auto Disruption",
+    "description": "Unusually heavy monsoon rains caused flash flooding in Chonburi and Rayong provinces, inundating parts of the Eastern Seaboard Industrial Estate that houses hard drive component and automotive parts manufacturers. Approximately 40 plants sustained water damage with production halts ranging from 1–3 weeks. Insurers flagged the event as a reminder of the 2011 flooding that caused over US$45 billion in supply chain losses.",
+    "countries": ["THA"],
+    "type": "natural_disaster",
+    "severity": "high",
+    "source": "Thai Industrial Estate Authority / Reuters"
+  },
+  {
+    "id": "evt-015",
+    "date": "2025-09-09",
+    "title": "US East Coast Port Strike Enters Third Week",
+    "description": "Members of the International Longshoremen's Association struck 36 US East and Gulf Coast ports for 19 days over automation and wages, halting approximately 50% of US containerized imports. Retailers, electronics manufacturers, and automotive suppliers diverted shipments to West Coast ports and accelerated airfreight bookings. The National Retail Federation estimated daily economic losses of US$4.5–5.5 billion. Settlement was reached with a 22% wage increase over 6 years.",
+    "countries": ["USA"],
+    "type": "labor",
+    "severity": "high",
+    "source": "International Longshoremen's Association / CNBC"
+  },
+  {
+    "id": "evt-016",
+    "date": "2025-09-22",
+    "title": "South Africa Transnet Port Terminals Strike — Durban and Cape Town",
+    "description": "Transnet workers at Durban and Cape Town container terminals staged a 12-day work stoppage over wages, resulting in berth congestion that took over 3 weeks to clear. Durban — which handles approximately 60% of South Africa's container trade — saw vessel waiting times exceed 10 days. Mining equipment, automotive, and retail importers faced significant delays, prompting some to divert via Port Elizabeth.",
+    "countries": ["ZAF"],
+    "type": "labor",
+    "severity": "medium",
+    "source": "Business Day SA / Transnet"
+  },
+  {
+    "id": "evt-017",
+    "date": "2025-09-28",
+    "title": "TSMC Arizona Fab 1 Achieves Volume Production Milestone",
+    "description": "TSMC announced that its 4nm fab in Phoenix, Arizona reached volume production yields comparable to its Taiwan facilities, a milestone that had been delayed by approximately 18 months due to skilled labor shortages and tooling qualification. The fab produces chips primarily for Apple and Nvidia. Industry analysts noted this as a meaningful first step toward semiconductor supply chain diversification but flagged that Arizona capacity represents less than 3% of TSMC's global output.",
+    "countries": ["USA", "TWN"],
+    "type": "trade_policy",
+    "severity": "low",
+    "source": "TSMC / Reuters"
+  },
+  {
+    "id": "evt-018",
+    "date": "2025-10-03",
+    "title": "Industrial Fire at Binh Duong Electronics Factory, Vietnam",
+    "description": "A major fire at a contract electronics assembly facility in Binh Duong province destroyed approximately 18,000 square meters of production space and caused an estimated US$85 million in asset losses. The factory produced enclosures and cable assemblies for multiple European and American OEMs. Production was temporarily shifted to sister facilities in Ho Chi Minh City and Da Nang, but delivery commitments slipped by 6–10 weeks for affected customers.",
+    "countries": ["VNM"],
+    "type": "infrastructure",
+    "severity": "medium",
+    "source": "VnExpress / Reuters"
+  },
+  {
+    "id": "evt-019",
+    "date": "2025-10-14",
+    "title": "China Expands Rare Earth Export Controls — Processing Equipment Now Included",
+    "description": "In a second escalation, China's Ministry of Commerce extended export licensing requirements to rare earth separation and processing equipment, effectively blocking foreign companies from building alternative processing capacity using Chinese-designed machinery. The controls also tightened approval timelines for the original seven rare earth elements, with industry sources reporting fewer than 30% of license applications receiving approval within 90 days.",
+    "countries": ["CHN", "USA", "DEU", "JPN", "KOR", "AUS"],
+    "type": "trade_policy",
+    "severity": "critical",
+    "source": "China Ministry of Commerce / Nikkei Asia"
+  },
+  {
+    "id": "evt-020",
+    "date": "2025-10-28",
+    "title": "EU Carbon Border Adjustment Mechanism — Reporting Phase Begins",
+    "description": "The EU's Carbon Border Adjustment Mechanism (CBAM) entered its full reporting phase for steel, aluminum, cement, fertilizers, electricity, and hydrogen imports. EU importers must now obtain CBAM certificates corresponding to the carbon price of embedded emissions. Suppliers in China, India, Turkey, and other major exporters without carbon pricing faced cost increases of 15–40% on affected products, triggering supply chain reviews of EU-destined procurement.",
+    "countries": ["DEU", "FRA", "NLD", "ITA", "ESP", "CHN", "IND", "TUR"],
+    "type": "regulatory",
+    "severity": "low",
+    "source": "European Commission"
+  },
+  {
+    "id": "evt-021",
+    "date": "2025-11-07",
+    "title": "Japan PCB Specialty Resin Shortage — Fab Lead Times Double",
+    "description": "Two major Japanese manufacturers of BT resin (bismaleimide triazine) — the specialty substrate used in flip-chip BGA packages and high-performance PCBs — announced simultaneous production cuts due to raw material sourcing issues. Lead times for BT resin-based substrates extended from 8 weeks to 18–22 weeks. Semiconductor packaging houses in Taiwan, South Korea, and Malaysia began allocating substrate capacity, raising concerns for Q1 2026 IC production schedules.",
+    "countries": ["JPN", "KOR", "TWN", "MYS"],
+    "type": "infrastructure",
+    "severity": "medium",
+    "source": "Nikkei Asia / DigiTimes"
+  },
+  {
+    "id": "evt-022",
+    "date": "2025-11-14",
+    "title": "Malaysia Semiconductor Packaging Plant Fire Triggers Emergency Sourcing",
+    "description": "A fire in an assembly and test facility operated by a major OSAT (outsourced semiconductor assembly and test) company in Penang destroyed wire bonding and flip-chip production lines handling over 2 billion chips per year. Customers including major automotive semiconductor suppliers activated force majeure clauses. Alternative OSAT capacity in the Philippines and Thailand was booked out within 48 hours of the incident, with spot pricing for packaging services increasing 40–60%.",
+    "countries": ["MYS", "PHL", "THA"],
+    "type": "infrastructure",
+    "severity": "high",
+    "source": "Bernama / IEEE Spectrum"
+  },
+  {
+    "id": "evt-023",
+    "date": "2025-11-18",
+    "title": "US Expands AI Chip Export Controls to 40 Additional Countries",
+    "description": "The US Bureau of Industry and Security expanded AI diffusion rules, requiring export licenses for Nvidia H100, H200, and B100 class chips to 40 additional countries across Southeast Asia, the Middle East, and South America. The rules aim to prevent re-export to China and Russia. Cloud infrastructure projects in Malaysia, Thailand, UAE, and Saudi Arabia were delayed pending license adjudication, with some hyperscaler deployments shifting to US or EU data centers.",
+    "countries": ["USA", "CHN", "MYS", "ARE", "SAU"],
+    "type": "trade_policy",
+    "severity": "high",
+    "source": "US Bureau of Industry and Security"
+  },
+  {
+    "id": "evt-024",
+    "date": "2025-11-30",
+    "title": "Indonesia Expands Nickel Processing Localization — Battery-Grade Exports Restricted",
+    "description": "Indonesia's Ministry of Energy extended its downstream processing mandate to battery-grade nickel sulfate and mixed hydroxide precipitate, requiring that further value-added processing occur in Indonesia before export. The rules primarily affected Chinese battery manufacturers operating Indonesian nickel projects, who had been exporting partially processed material to China. EV battery supply chains in South Korea and Europe flagged potential nickel sourcing gaps for 2026.",
+    "countries": ["IDN", "CHN", "KOR", "DEU"],
+    "type": "trade_policy",
+    "severity": "high",
+    "source": "Indonesian Ministry of Energy and Mineral Resources"
+  },
+  {
+    "id": "evt-025",
+    "date": "2025-12-05",
+    "title": "ZF Friedrichshafen Announces 14,000 Job Cuts — German Auto Supplier Crisis",
+    "description": "ZF Friedrichshafen, one of the world's largest automotive suppliers, announced plans to cut up to 14,000 jobs in Germany by 2028, citing the structural shift to EV drivetrains, Chinese competition in European markets, and the decline of traditional transmission demand. The announcement reflected a broader crisis in the German auto supply chain, with Schaeffler, Continental, and Bosch making similar cuts, signaling reduced capacity and potential delivery risk for automotive commodity sourcing.",
+    "countries": ["DEU"],
+    "type": "labor",
+    "severity": "medium",
+    "source": "Handelsblatt / Reuters"
+  },
+  {
+    "id": "evt-026",
+    "date": "2025-12-18",
+    "title": "NAND Flash Prices Surge 40% on Supply Constraints and AI Storage Demand",
+    "description": "NAND flash memory contract prices rose approximately 40% over Q4 2025 as enterprise SSD demand for AI training and inference workloads outstripped capacity additions. Samsung and SK Hynix extended lead times for enterprise NAND to 14–18 weeks. Consumer storage product shortages appeared in December, and PC OEMs warned of memory cost pass-through in early 2026 products. Buyers were advised to build 8–10 week safety stock.",
+    "countries": ["KOR", "JPN", "TWN"],
+    "type": "infrastructure",
+    "severity": "medium",
+    "source": "DRAMeXchange / Bloomberg"
+  },
+  {
+    "id": "evt-027",
+    "date": "2026-01-01",
+    "title": "EU Corporate Sustainability Due Diligence Directive Enters Enforcement Phase",
+    "description": "The EU Corporate Sustainability Due Diligence Directive (CSDDD) became enforceable for companies with over 5,000 employees and €1.5B in global revenue, requiring documented human rights and environmental due diligence across the full upstream supply chain. Non-compliant companies face fines of up to 5% of global net turnover. Procurement teams across Europe accelerated supplier audits, with particular scrutiny on Tier 2 and Tier 3 suppliers in high-risk jurisdictions.",
+    "countries": ["DEU", "FRA", "NLD", "BEL", "ITA", "ESP"],
+    "type": "regulatory",
+    "severity": "medium",
+    "source": "European Commission"
+  },
+  {
+    "id": "evt-028",
+    "date": "2026-01-30",
+    "title": "India Announces Phase 2 Semiconductor PLI Scheme — $15B Investment Package",
+    "description": "India's Ministry of Electronics and Information Technology unveiled the second phase of its Production Linked Incentive scheme for semiconductors, with INR 1.25 trillion (approximately US$15 billion) in subsidy commitments for fabs, OSAT facilities, and compound semiconductor plants. Micron's Sanand assembly plant was cited as the anchor investment. The scheme is expected to create domestic production capability for mature-node chips by 2028, reducing import dependency.",
+    "countries": ["IND"],
+    "type": "trade_policy",
+    "severity": "low",
+    "source": "Ministry of Electronics and Information Technology, India"
+  },
+  {
+    "id": "evt-029",
+    "date": "2026-02-12",
+    "title": "Singapore Tightens Semiconductor Equipment Re-Export Controls",
+    "description": "Singapore's Enterprise Development Board issued new guidance requiring export licenses for re-export of semiconductor manufacturing equipment classified under US EAR controls to a list of 78 countries. The move followed US pressure over evidence that advanced lithography and deposition equipment was reaching Chinese chipmakers via third-country intermediaries. Several Singapore-based distribution companies faced retroactive license compliance reviews.",
+    "countries": ["SGP", "CHN", "USA"],
+    "type": "regulatory",
+    "severity": "medium",
+    "source": "Enterprise Singapore / Reuters"
+  },
+  {
+    "id": "evt-030",
+    "date": "2026-02-28",
+    "title": "China Further Restricts Gallium and Germanium Export Quotas",
+    "description": "China's Ministry of Commerce announced a 45% reduction in export quotas for gallium metal and germanium dioxide for Q1 2026, tightening controls first imposed in August 2023. Gallium is critical for GaN power semiconductors and III-V compound semiconductors used in defense electronics and 5G base stations. Spot prices for gallium surged 65% within two weeks of the announcement, with lead times for GaN substrates extending to 30+ weeks.",
+    "countries": ["CHN", "USA", "DEU", "JPN", "KOR"],
+    "type": "trade_policy",
+    "severity": "critical",
+    "source": "China Ministry of Commerce / Metal Bulletin"
+  },
+  {
+    "id": "evt-031",
+    "date": "2026-03-10",
+    "title": "US Opens Section 301 Investigation into Vietnamese Solar and Connector Exports",
+    "description": "The Office of the US Trade Representative initiated a Section 301 investigation into Vietnam's trade practices regarding solar panels and electrical connectors, citing evidence of transshipment of Chinese-origin content to circumvent existing duties. The investigation creates uncertainty for US buyers with heavy Vietnam sourcing exposure and could result in tariffs of 25–100% if the investigation concludes adversely. A 12-month investigation period was expected.",
+    "countries": ["VNM", "USA", "CHN"],
+    "type": "trade_policy",
+    "severity": "medium",
+    "source": "Office of the US Trade Representative"
+  },
+  {
+    "id": "evt-032",
+    "date": "2026-03-28",
+    "title": "Neon Gas Shortage Worsens as Ukraine Conflict Continues",
+    "description": "Ukraine historically supplied approximately 40–45% of the world's ultra-high-purity neon — a critical gas for excimer lasers in chip lithography — through facilities in Mariupol and Odesa. With Mariupol operations destroyed and Odesa at intermittent risk, global neon output remained constrained. Neon spot prices remained 300–400% above pre-war levels. Semiconductor fabs in Taiwan and South Korea had built strategic reserves but warned these would be drawn down by mid-2026 without new supply development.",
+    "countries": ["UKR", "RUS", "TWN", "KOR", "USA"],
+    "type": "geopolitical",
+    "severity": "high",
+    "source": "SEMI / Reuters"
+  },
+  {
+    "id": "evt-033",
+    "date": "2026-04-05",
+    "title": "Magnitude 6.4 Earthquake Strikes Bursa Industrial Zone, Turkey",
+    "description": "A M6.4 earthquake centered near Bursa caused significant damage to industrial facilities in one of Turkey's most important automotive and metal casting manufacturing regions. Several auto supplier plants and casting foundries sustained structural damage, with estimated production losses of US$120–180 million. The earthquake reinforced supply chain concerns about Turkey's seismic exposure following the devastating Kahramanmaraş earthquakes of February 2023.",
+    "countries": ["TUR"],
+    "type": "natural_disaster",
+    "severity": "medium",
+    "source": "AFAD / Anadolu Agency"
+  },
+  {
+    "id": "evt-034",
+    "date": "2026-04-18",
+    "title": "Brazil Opens First Commercial Rare Earth Separation Facility",
+    "description": "Brazil's Arafértil group inaugurated a commercial-scale rare earth oxide separation facility in Catalão, Goiás, marking the first significant rare earth processing capacity established outside China since 2020. Initial capacity of 5,000 tonnes per year of separated rare earth oxides is targeted at European and US customers seeking supply chain diversification from Chinese sources. The facility is expected to reach full capacity by Q4 2026.",
+    "countries": ["BRA", "USA", "DEU"],
+    "type": "trade_policy",
+    "severity": "low",
+    "source": "Reuters / Mining.com"
+  },
+  {
+    "id": "evt-035",
+    "date": "2026-05-02",
+    "title": "China Rare Earth Export License Approvals Slow — 60-Day Backlog Reported",
+    "description": "Industry sources reported that China's Ministry of Commerce had accumulated a 60-day backlog in processing rare earth export license applications, effectively halting shipments for manufacturers without previously approved quotas. Japanese and South Korean motor and sensor manufacturers reported emergency meetings with procurement teams. Several European EV manufacturers warned that Q3 2026 production targets were at risk if shipments did not resume within 30 days.",
+    "countries": ["CHN", "JPN", "KOR", "DEU", "USA"],
+    "type": "trade_policy",
+    "severity": "critical",
+    "source": "Nikkei Asia / Bloomberg"
+  }
+]

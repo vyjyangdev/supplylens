@@ -1,0 +1,82 @@
+[
+  {
+    "id": "pcb",
+    "name": "PCBs",
+    "description": "Printed circuit boards used as the foundational substrate for electronic component assemblies."
+  },
+  {
+    "id": "semiconductors",
+    "name": "Semiconductors",
+    "description": "Integrated circuits, processors, and chips that form the computational core of electronic devices."
+  },
+  {
+    "id": "connectors",
+    "name": "Connectors",
+    "description": "Electrical connectors and interfaces that link electronic components, subsystems, and wire harnesses."
+  },
+  {
+    "id": "capacitors",
+    "name": "Capacitors",
+    "description": "Passive electronic components that store and release electrical energy, essential in every circuit board."
+  },
+  {
+    "id": "display-panels",
+    "name": "Display Panels",
+    "description": "LCD, OLED, and LED display assemblies used in consumer electronics and industrial instrumentation."
+  },
+  {
+    "id": "memory-chips",
+    "name": "Memory Chips",
+    "description": "DRAM, NAND flash, and other semiconductor memory devices used for data storage and processing."
+  },
+  {
+    "id": "rare-earth-magnets",
+    "name": "Rare Earth Magnets",
+    "description": "Neodymium-iron-boron and samarium-cobalt permanent magnets used in motors, actuators, and sensors."
+  },
+  {
+    "id": "battery-cells",
+    "name": "Battery Cells",
+    "description": "Lithium-ion and lithium-polymer cells used in portable devices, power tools, and EV battery packs."
+  },
+  {
+    "id": "enclosures",
+    "name": "Enclosures",
+    "description": "Plastic and metal housings that protect electronic assemblies from mechanical and environmental hazards."
+  },
+  {
+    "id": "cables",
+    "name": "Cables",
+    "description": "Wiring harnesses, power cables, and high-speed data transmission cables for electronic systems."
+  },
+  {
+    "id": "precision-sensors",
+    "name": "Precision Sensors",
+    "description": "Temperature, pressure, motion, and optical sensors used in industrial automation and consumer products."
+  },
+  {
+    "id": "metal-castings",
+    "name": "Metal Castings",
+    "description": "Die-cast and investment-cast metal components for structural, thermal management, and mechanical applications."
+  },
+  {
+    "id": "assembly-services",
+    "name": "Assembly Services",
+    "description": "Contract manufacturing and PCB assembly services for full product build, test, and integration."
+  },
+  {
+    "id": "hard-drives",
+    "name": "Hard Drives",
+    "description": "Mechanical hard disk drives and solid-state drives used for mass data storage in computing systems."
+  },
+  {
+    "id": "specialty-components",
+    "name": "Specialty Components",
+    "description": "Custom or proprietary components with unique specifications not available as standard commodity parts."
+  },
+  {
+    "id": "automotive-parts",
+    "name": "Automotive Parts",
+    "description": "Precision-engineered components for automotive powertrains, safety systems, and embedded electronics."
+  }
+]

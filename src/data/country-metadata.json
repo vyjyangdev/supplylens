@@ -1,0 +1,426 @@
+[
+  {
+    "iso3": "CHN",
+    "iso2": "CN",
+    "name": "China",
+    "nameVariants": ["People's Republic of China", "PRC", "Mainland China", "CN", "CHN", "P.R. China", "中国", "Chine", "PRC China", "China PR"],
+    "region": "East Asia",
+    "coordinates": [35.86, 104.19]
+  },
+  {
+    "iso3": "TWN",
+    "iso2": "TW",
+    "name": "Taiwan",
+    "nameVariants": ["Republic of China", "ROC", "Chinese Taipei", "TW", "TWN", "Taiwan, Province of China", "Formosa", "Taiwan ROC"],
+    "region": "East Asia",
+    "coordinates": [23.69, 120.96]
+  },
+  {
+    "iso3": "JPN",
+    "iso2": "JP",
+    "name": "Japan",
+    "nameVariants": ["JP", "JPN", "Nippon", "Nihon", "日本", "Japon"],
+    "region": "East Asia",
+    "coordinates": [36.20, 138.25]
+  },
+  {
+    "iso3": "KOR",
+    "iso2": "KR",
+    "name": "South Korea",
+    "nameVariants": ["Korea", "Republic of Korea", "ROK", "KR", "KOR", "Korea South", "S. Korea", "S Korea", "한국"],
+    "region": "East Asia",
+    "coordinates": [35.91, 127.77]
+  },
+  {
+    "iso3": "VNM",
+    "iso2": "VN",
+    "name": "Vietnam",
+    "nameVariants": ["Viet Nam", "VN", "VNM", "Socialist Republic of Vietnam", "Việt Nam"],
+    "region": "Southeast Asia",
+    "coordinates": [14.06, 108.28]
+  },
+  {
+    "iso3": "THA",
+    "iso2": "TH",
+    "name": "Thailand",
+    "nameVariants": ["TH", "THA", "Kingdom of Thailand", "Siam", "ประเทศไทย"],
+    "region": "Southeast Asia",
+    "coordinates": [15.87, 100.99]
+  },
+  {
+    "iso3": "IND",
+    "iso2": "IN",
+    "name": "India",
+    "nameVariants": ["IN", "IND", "Republic of India", "Bharat", "इंडिया", "Inde"],
+    "region": "South Asia",
+    "coordinates": [20.59, 78.96]
+  },
+  {
+    "iso3": "PHL",
+    "iso2": "PH",
+    "name": "Philippines",
+    "nameVariants": ["PH", "PHL", "Republic of the Philippines", "Phillipines", "Philipines", "Philippines Islands", "RP"],
+    "region": "Southeast Asia",
+    "coordinates": [12.88, 121.77]
+  },
+  {
+    "iso3": "IDN",
+    "iso2": "ID",
+    "name": "Indonesia",
+    "nameVariants": ["ID", "IDN", "Republic of Indonesia", "RI", "Indonesien"],
+    "region": "Southeast Asia",
+    "coordinates": [-0.79, 113.92]
+  },
+  {
+    "iso3": "MYS",
+    "iso2": "MY",
+    "name": "Malaysia",
+    "nameVariants": ["MY", "MYS", "Federation of Malaysia", "Malaya", "Malaysia Federation"],
+    "region": "Southeast Asia",
+    "coordinates": [4.21, 108.10]
+  },
+  {
+    "iso3": "SGP",
+    "iso2": "SG",
+    "name": "Singapore",
+    "nameVariants": ["SG", "SGP", "Republic of Singapore", "Singapour", "SIN"],
+    "region": "Southeast Asia",
+    "coordinates": [1.35, 103.82]
+  },
+  {
+    "iso3": "BGD",
+    "iso2": "BD",
+    "name": "Bangladesh",
+    "nameVariants": ["BD", "BGD", "People's Republic of Bangladesh", "Bangla Desh", "Bangladesch"],
+    "region": "South Asia",
+    "coordinates": [23.68, 90.36]
+  },
+  {
+    "iso3": "PAK",
+    "iso2": "PK",
+    "name": "Pakistan",
+    "nameVariants": ["PK", "PAK", "Islamic Republic of Pakistan", "Pakistán"],
+    "region": "South Asia",
+    "coordinates": [30.38, 69.35]
+  },
+  {
+    "iso3": "LKA",
+    "iso2": "LK",
+    "name": "Sri Lanka",
+    "nameVariants": ["LK", "LKA", "Ceylon", "Democratic Socialist Republic of Sri Lanka", "Srilanka", "Sri-Lanka"],
+    "region": "South Asia",
+    "coordinates": [7.87, 80.77]
+  },
+  {
+    "iso3": "MMR",
+    "iso2": "MM",
+    "name": "Myanmar",
+    "nameVariants": ["MM", "MMR", "Burma", "Republic of the Union of Myanmar", "Birmanie"],
+    "region": "Southeast Asia",
+    "coordinates": [21.91, 95.96]
+  },
+  {
+    "iso3": "KHM",
+    "iso2": "KH",
+    "name": "Cambodia",
+    "nameVariants": ["KH", "KHM", "Khmer Republic", "Kingdom of Cambodia", "Cambodge", "Kampuchea"],
+    "region": "Southeast Asia",
+    "coordinates": [12.57, 104.99]
+  },
+  {
+    "iso3": "TUR",
+    "iso2": "TR",
+    "name": "Turkey",
+    "nameVariants": ["TR", "TUR", "Türkiye", "Republic of Turkey", "Republic of Türkiye", "Turkiye", "Turquie"],
+    "region": "Western Asia",
+    "coordinates": [38.96, 35.24]
+  },
+  {
+    "iso3": "DEU",
+    "iso2": "DE",
+    "name": "Germany",
+    "nameVariants": ["DE", "DEU", "Deutschland", "Federal Republic of Germany", "FRG", "West Germany", "Allemagne"],
+    "region": "Western Europe",
+    "coordinates": [51.17, 10.45]
+  },
+  {
+    "iso3": "FRA",
+    "iso2": "FR",
+    "name": "France",
+    "nameVariants": ["FR", "FRA", "French Republic", "République Française", "France Metropolitan"],
+    "region": "Western Europe",
+    "coordinates": [46.23, 2.21]
+  },
+  {
+    "iso3": "GBR",
+    "iso2": "GB",
+    "name": "United Kingdom",
+    "nameVariants": ["UK", "GB", "GBR", "Great Britain", "England", "Britain", "U.K.", "United Kingdom of Great Britain and Northern Ireland", "Britain and Northern Ireland"],
+    "region": "Western Europe",
+    "coordinates": [55.38, -3.44]
+  },
+  {
+    "iso3": "ITA",
+    "iso2": "IT",
+    "name": "Italy",
+    "nameVariants": ["IT", "ITA", "Italian Republic", "Italia", "Italie"],
+    "region": "Southern Europe",
+    "coordinates": [41.87, 12.57]
+  },
+  {
+    "iso3": "ESP",
+    "iso2": "ES",
+    "name": "Spain",
+    "nameVariants": ["ES", "ESP", "España", "Kingdom of Spain", "Espagne", "Espana"],
+    "region": "Southern Europe",
+    "coordinates": [40.46, -3.75]
+  },
+  {
+    "iso3": "NLD",
+    "iso2": "NL",
+    "name": "Netherlands",
+    "nameVariants": ["NL", "NLD", "Holland", "The Netherlands", "Nederland", "Pays-Bas"],
+    "region": "Western Europe",
+    "coordinates": [52.13, 5.29]
+  },
+  {
+    "iso3": "POL",
+    "iso2": "PL",
+    "name": "Poland",
+    "nameVariants": ["PL", "POL", "Republic of Poland", "Polska", "Pologne"],
+    "region": "Eastern Europe",
+    "coordinates": [51.92, 19.15]
+  },
+  {
+    "iso3": "CZE",
+    "iso2": "CZ",
+    "name": "Czech Republic",
+    "nameVariants": ["CZ", "CZE", "Czechia", "Czech", "Česká republika", "Tchéquie"],
+    "region": "Eastern Europe",
+    "coordinates": [49.82, 15.47]
+  },
+  {
+    "iso3": "ROU",
+    "iso2": "RO",
+    "name": "Romania",
+    "nameVariants": ["RO", "ROU", "România", "Roumanie", "Rumania", "Roumania"],
+    "region": "Eastern Europe",
+    "coordinates": [45.94, 24.97]
+  },
+  {
+    "iso3": "HUN",
+    "iso2": "HU",
+    "name": "Hungary",
+    "nameVariants": ["HU", "HUN", "Magyarország", "Hongrie"],
+    "region": "Eastern Europe",
+    "coordinates": [47.16, 19.50]
+  },
+  {
+    "iso3": "CHE",
+    "iso2": "CH",
+    "name": "Switzerland",
+    "nameVariants": ["CH", "CHE", "Schweiz", "Suisse", "Swiss Confederation", "Swiss", "Svizzera"],
+    "region": "Western Europe",
+    "coordinates": [46.82, 8.23]
+  },
+  {
+    "iso3": "SWE",
+    "iso2": "SE",
+    "name": "Sweden",
+    "nameVariants": ["SE", "SWE", "Kingdom of Sweden", "Sverige", "Suède"],
+    "region": "Northern Europe",
+    "coordinates": [60.13, 18.64]
+  },
+  {
+    "iso3": "IRL",
+    "iso2": "IE",
+    "name": "Ireland",
+    "nameVariants": ["IE", "IRL", "Republic of Ireland", "Éire", "Irish Republic"],
+    "region": "Western Europe",
+    "coordinates": [53.41, -8.24]
+  },
+  {
+    "iso3": "AUT",
+    "iso2": "AT",
+    "name": "Austria",
+    "nameVariants": ["AT", "AUT", "Republic of Austria", "Österreich", "Autriche"],
+    "region": "Western Europe",
+    "coordinates": [47.52, 14.55]
+  },
+  {
+    "iso3": "BEL",
+    "iso2": "BE",
+    "name": "Belgium",
+    "nameVariants": ["BE", "BEL", "Kingdom of Belgium", "Belgique", "België", "Belgien"],
+    "region": "Western Europe",
+    "coordinates": [50.50, 4.47]
+  },
+  {
+    "iso3": "PRT",
+    "iso2": "PT",
+    "name": "Portugal",
+    "nameVariants": ["PT", "PRT", "Portuguese Republic", "República Portuguesa", "Portogallo"],
+    "region": "Southern Europe",
+    "coordinates": [39.40, -8.22]
+  },
+  {
+    "iso3": "USA",
+    "iso2": "US",
+    "name": "United States",
+    "nameVariants": ["US", "USA", "United States of America", "U.S.A.", "U.S.", "America", "United States of America (USA)", "UNITED STATES"],
+    "region": "North America",
+    "coordinates": [37.09, -95.71]
+  },
+  {
+    "iso3": "CAN",
+    "iso2": "CA",
+    "name": "Canada",
+    "nameVariants": ["CA", "CAN", "Canadian", "Kanada"],
+    "region": "North America",
+    "coordinates": [56.13, -106.35]
+  },
+  {
+    "iso3": "MEX",
+    "iso2": "MX",
+    "name": "Mexico",
+    "nameVariants": ["MX", "MEX", "México", "Mexican Republic", "United Mexican States", "Mexique"],
+    "region": "North America",
+    "coordinates": [23.63, -102.55]
+  },
+  {
+    "iso3": "BRA",
+    "iso2": "BR",
+    "name": "Brazil",
+    "nameVariants": ["BR", "BRA", "Brasil", "Federative Republic of Brazil", "Brésil"],
+    "region": "South America",
+    "coordinates": [-14.24, -51.93]
+  },
+  {
+    "iso3": "ARG",
+    "iso2": "AR",
+    "name": "Argentina",
+    "nameVariants": ["AR", "ARG", "Argentine Republic", "Argentine", "República Argentina"],
+    "region": "South America",
+    "coordinates": [-38.42, -63.62]
+  },
+  {
+    "iso3": "COL",
+    "iso2": "CO",
+    "name": "Colombia",
+    "nameVariants": ["CO", "COL", "Republic of Colombia", "Colombie", "Columbia"],
+    "region": "South America",
+    "coordinates": [4.57, -74.30]
+  },
+  {
+    "iso3": "ZAF",
+    "iso2": "ZA",
+    "name": "South Africa",
+    "nameVariants": ["ZA", "ZAF", "RSA", "Republic of South Africa", "S. Africa", "S Africa", "South Africa RSA"],
+    "region": "Sub-Saharan Africa",
+    "coordinates": [-30.56, 22.94]
+  },
+  {
+    "iso3": "NGA",
+    "iso2": "NG",
+    "name": "Nigeria",
+    "nameVariants": ["NG", "NGA", "Federal Republic of Nigeria", "Nigéria"],
+    "region": "Sub-Saharan Africa",
+    "coordinates": [9.08, 8.68]
+  },
+  {
+    "iso3": "KEN",
+    "iso2": "KE",
+    "name": "Kenya",
+    "nameVariants": ["KE", "KEN", "Republic of Kenya", "Kenia"],
+    "region": "Sub-Saharan Africa",
+    "coordinates": [-0.02, 37.91]
+  },
+  {
+    "iso3": "ETH",
+    "iso2": "ET",
+    "name": "Ethiopia",
+    "nameVariants": ["ET", "ETH", "Federal Democratic Republic of Ethiopia", "Éthiopie"],
+    "region": "Sub-Saharan Africa",
+    "coordinates": [9.15, 40.49]
+  },
+  {
+    "iso3": "EGY",
+    "iso2": "EG",
+    "name": "Egypt",
+    "nameVariants": ["EG", "EGY", "Arab Republic of Egypt", "Égypte", "Egipto"],
+    "region": "North Africa",
+    "coordinates": [26.82, 30.80]
+  },
+  {
+    "iso3": "MAR",
+    "iso2": "MA",
+    "name": "Morocco",
+    "nameVariants": ["MA", "MAR", "Kingdom of Morocco", "Maroc", "Marruecos", "Marokko"],
+    "region": "North Africa",
+    "coordinates": [31.79, -7.09]
+  },
+  {
+    "iso3": "SAU",
+    "iso2": "SA",
+    "name": "Saudi Arabia",
+    "nameVariants": ["SA", "SAU", "Kingdom of Saudi Arabia", "KSA", "Saudi", "Arabie Saoudite"],
+    "region": "Middle East",
+    "coordinates": [23.89, 45.08]
+  },
+  {
+    "iso3": "ARE",
+    "iso2": "AE",
+    "name": "United Arab Emirates",
+    "nameVariants": ["AE", "ARE", "UAE", "U.A.E.", "Emirates", "Emirats Arabes Unis"],
+    "region": "Middle East",
+    "coordinates": [23.42, 53.85]
+  },
+  {
+    "iso3": "ISR",
+    "iso2": "IL",
+    "name": "Israel",
+    "nameVariants": ["IL", "ISR", "State of Israel", "Israël", "Israel IL"],
+    "region": "Middle East",
+    "coordinates": [31.05, 34.85]
+  },
+  {
+    "iso3": "IRN",
+    "iso2": "IR",
+    "name": "Iran",
+    "nameVariants": ["IR", "IRN", "Islamic Republic of Iran", "Persia", "Perse", "Iran IR"],
+    "region": "Middle East",
+    "coordinates": [32.43, 53.69]
+  },
+  {
+    "iso3": "AUS",
+    "iso2": "AU",
+    "name": "Australia",
+    "nameVariants": ["AU", "AUS", "Commonwealth of Australia", "Australie", "Australien"],
+    "region": "Oceania",
+    "coordinates": [-25.27, 133.78]
+  },
+  {
+    "iso3": "NZL",
+    "iso2": "NZ",
+    "name": "New Zealand",
+    "nameVariants": ["NZ", "NZL", "Aotearoa", "NZ New Zealand", "Nouvelle-Zélande"],
+    "region": "Oceania",
+    "coordinates": [-40.90, 174.89]
+  },
+  {
+    "iso3": "RUS",
+    "iso2": "RU",
+    "name": "Russia",
+    "nameVariants": ["RU", "RUS", "Russian Federation", "RF", "Russie", "Россия"],
+    "region": "Eastern Europe / North Asia",
+    "coordinates": [61.52, 105.32]
+  },
+  {
+    "iso3": "UKR",
+    "iso2": "UA",
+    "name": "Ukraine",
+    "nameVariants": ["UA", "UKR", "Ukraina", "Ukraine UA", "Ukrain"],
+    "region": "Eastern Europe",
+    "coordinates": [48.38, 31.17]
+  }
+]

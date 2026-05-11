@@ -1,0 +1,452 @@
+[
+  {
+    "id": "sup-001",
+    "name": "Shenzhen Electronics Co.",
+    "country": "China",
+    "city": "Shenzhen",
+    "commodity": "PCBs",
+    "criticality": "critical",
+    "annualSpend": 3200000
+  },
+  {
+    "id": "sup-002",
+    "name": "GuangTech Components",
+    "country": "China",
+    "city": "Guangzhou",
+    "commodity": "Connectors",
+    "criticality": "important",
+    "annualSpend": 1800000
+  },
+  {
+    "id": "sup-003",
+    "name": "Baotou Magnet Corp",
+    "country": "China",
+    "city": "Baotou",
+    "commodity": "Rare Earth Magnets",
+    "criticality": "critical",
+    "annualSpend": 4100000
+  },
+  {
+    "id": "sup-004",
+    "name": "Hunan Battery Tech",
+    "country": "China",
+    "city": "Changsha",
+    "commodity": "Battery Cells",
+    "criticality": "critical",
+    "annualSpend": 2900000
+  },
+  {
+    "id": "sup-005",
+    "name": "Dongguan Precision Plastics",
+    "country": "China",
+    "city": "Dongguan",
+    "commodity": "Enclosures",
+    "criticality": "important",
+    "annualSpend": 890000
+  },
+  {
+    "id": "sup-006",
+    "name": "Foxconn Industrial Shenzhen",
+    "country": "China",
+    "city": "Shenzhen",
+    "commodity": "Assembly Services",
+    "criticality": "critical",
+    "annualSpend": 5000000
+  },
+  {
+    "id": "sup-007",
+    "name": "Yangtze Capacitor Group",
+    "country": "China",
+    "city": "Wuxi",
+    "commodity": "Capacitors",
+    "criticality": "important",
+    "annualSpend": 650000
+  },
+  {
+    "id": "sup-008",
+    "name": "Chengdu Circuit Solutions",
+    "country": "China",
+    "city": "Chengdu",
+    "commodity": "PCBs",
+    "criticality": "important",
+    "annualSpend": 1100000
+  },
+  {
+    "id": "sup-009",
+    "name": "Ningbo Cable Industries",
+    "country": "China",
+    "city": "Ningbo",
+    "commodity": "Cables",
+    "criticality": "standard",
+    "annualSpend": 420000
+  },
+  {
+    "id": "sup-010",
+    "name": "Shanghai Display Technics",
+    "country": "China",
+    "city": "Shanghai",
+    "commodity": "Display Panels",
+    "criticality": "important",
+    "annualSpend": 1400000
+  },
+  {
+    "id": "sup-011",
+    "name": "Suzhou Connector Works",
+    "country": "China",
+    "city": "Suzhou",
+    "commodity": "Connectors",
+    "criticality": "standard",
+    "annualSpend": 380000
+  },
+  {
+    "id": "sup-012",
+    "name": "Xiamen Switch & Relay",
+    "country": "China",
+    "city": "Xiamen",
+    "commodity": "Connectors",
+    "criticality": "standard",
+    "annualSpend": 290000
+  },
+  {
+    "id": "sup-013",
+    "name": "Kunshan Metal Stampings",
+    "country": "China",
+    "city": "Kunshan",
+    "commodity": "Metal Castings",
+    "criticality": "important",
+    "annualSpend": 760000
+  },
+  {
+    "id": "sup-014",
+    "name": "Hangzhou Sensor Systems",
+    "country": "China",
+    "city": "Hangzhou",
+    "commodity": "Precision Sensors",
+    "criticality": "important",
+    "annualSpend": 940000
+  },
+  {
+    "id": "sup-015",
+    "name": "Zhuhai PCB Solutions",
+    "country": "China",
+    "city": "Zhuhai",
+    "commodity": "PCBs",
+    "criticality": "standard",
+    "annualSpend": 510000
+  },
+  {
+    "id": "sup-016",
+    "name": "Tianjin Assembly Corp",
+    "country": "China",
+    "city": "Tianjin",
+    "commodity": "Assembly Services",
+    "criticality": "important",
+    "annualSpend": 1300000
+  },
+  {
+    "id": "sup-017",
+    "name": "Wuhan Electronic Parts",
+    "country": "China",
+    "city": "Wuhan",
+    "commodity": "Capacitors",
+    "criticality": "standard",
+    "annualSpend": 220000
+  },
+  {
+    "id": "sup-018",
+    "name": "Shenzhen Power Electronics",
+    "country": "China",
+    "city": "Shenzhen",
+    "commodity": "Specialty Components",
+    "criticality": "important",
+    "annualSpend": 870000
+  },
+  {
+    "id": "sup-019",
+    "name": "TSMC Components",
+    "country": "Taiwan",
+    "city": "Hsinchu",
+    "commodity": "Semiconductors",
+    "criticality": "critical",
+    "annualSpend": 4800000
+  },
+  {
+    "id": "sup-020",
+    "name": "Hsinchu Precision",
+    "country": "Taiwan",
+    "city": "Hsinchu",
+    "commodity": "PCBs",
+    "criticality": "critical",
+    "annualSpend": 2100000
+  },
+  {
+    "id": "sup-021",
+    "name": "ASE Technology Supply",
+    "country": "Taiwan",
+    "city": "Kaohsiung",
+    "commodity": "Semiconductors",
+    "criticality": "important",
+    "annualSpend": 1600000
+  },
+  {
+    "id": "sup-022",
+    "name": "Delta Electronics TW",
+    "country": "Taiwan",
+    "city": "Taipei",
+    "commodity": "Precision Sensors",
+    "criticality": "important",
+    "annualSpend": 980000
+  },
+  {
+    "id": "sup-023",
+    "name": "Quanta Component Supply",
+    "country": "Taiwan",
+    "city": "Taoyuan",
+    "commodity": "Assembly Services",
+    "criticality": "important",
+    "annualSpend": 1200000
+  },
+  {
+    "id": "sup-024",
+    "name": "AU Optronics Parts",
+    "country": "Taiwan",
+    "city": "Hsinchu",
+    "commodity": "Display Panels",
+    "criticality": "critical",
+    "annualSpend": 2400000
+  },
+  {
+    "id": "sup-025",
+    "name": "Murata Supply",
+    "country": "Japan",
+    "city": "Kyoto",
+    "commodity": "Capacitors",
+    "criticality": "critical",
+    "annualSpend": 2200000
+  },
+  {
+    "id": "sup-026",
+    "name": "TDK Components",
+    "country": "Japan",
+    "city": "Tokyo",
+    "commodity": "Capacitors",
+    "criticality": "important",
+    "annualSpend": 1400000
+  },
+  {
+    "id": "sup-027",
+    "name": "Keyence Sensor Supply",
+    "country": "Japan",
+    "city": "Osaka",
+    "commodity": "Precision Sensors",
+    "criticality": "critical",
+    "annualSpend": 1900000
+  },
+  {
+    "id": "sup-028",
+    "name": "Panasonic Industrial",
+    "country": "Japan",
+    "city": "Osaka",
+    "commodity": "Specialty Components",
+    "criticality": "important",
+    "annualSpend": 780000
+  },
+  {
+    "id": "sup-029",
+    "name": "Samsung Display Supply",
+    "country": "South Korea",
+    "city": "Suwon",
+    "commodity": "Display Panels",
+    "criticality": "critical",
+    "annualSpend": 3600000
+  },
+  {
+    "id": "sup-030",
+    "name": "SK Hynix Materials",
+    "country": "South Korea",
+    "city": "Icheon",
+    "commodity": "Memory Chips",
+    "criticality": "critical",
+    "annualSpend": 2800000
+  },
+  {
+    "id": "sup-031",
+    "name": "LG Innotek Supply",
+    "country": "South Korea",
+    "city": "Seoul",
+    "commodity": "Precision Sensors",
+    "criticality": "important",
+    "annualSpend": 1100000
+  },
+  {
+    "id": "sup-032",
+    "name": "Hanoi Electronics Mfg",
+    "country": "Vietnam",
+    "city": "Hanoi",
+    "commodity": "Enclosures",
+    "criticality": "standard",
+    "annualSpend": 340000
+  },
+  {
+    "id": "sup-033",
+    "name": "Ho Chi Minh Cable Co",
+    "country": "Vietnam",
+    "city": "Ho Chi Minh City",
+    "commodity": "Cables",
+    "criticality": "standard",
+    "annualSpend": 280000
+  },
+  {
+    "id": "sup-034",
+    "name": "Da Nang Assembly Works",
+    "country": "Vietnam",
+    "city": "Da Nang",
+    "commodity": "Assembly Services",
+    "criticality": "standard",
+    "annualSpend": 410000
+  },
+  {
+    "id": "sup-035",
+    "name": "Bosch Automotive Supply",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "commodity": "Automotive Parts",
+    "criticality": "important",
+    "annualSpend": 1300000
+  },
+  {
+    "id": "sup-036",
+    "name": "Siemens Components GmbH",
+    "country": "Germany",
+    "city": "Munich",
+    "commodity": "Specialty Components",
+    "criticality": "important",
+    "annualSpend": 950000
+  },
+  {
+    "id": "sup-037",
+    "name": "Trumpf Industrial Supply",
+    "country": "Germany",
+    "city": "Ditzingen",
+    "commodity": "Precision Sensors",
+    "criticality": "standard",
+    "annualSpend": 620000
+  },
+  {
+    "id": "sup-038",
+    "name": "Monterrey Assembly SA",
+    "country": "Mexico",
+    "city": "Monterrey",
+    "commodity": "Assembly Services",
+    "criticality": "important",
+    "annualSpend": 890000
+  },
+  {
+    "id": "sup-039",
+    "name": "Juárez Cable Solutions",
+    "country": "Mexico",
+    "city": "Ciudad Juárez",
+    "commodity": "Cables",
+    "criticality": "standard",
+    "annualSpend": 360000
+  },
+  {
+    "id": "sup-040",
+    "name": "Tijuana Connector Works",
+    "country": "Mexico",
+    "city": "Tijuana",
+    "commodity": "Connectors",
+    "criticality": "standard",
+    "annualSpend": 290000
+  },
+  {
+    "id": "sup-041",
+    "name": "Pune Electronics Ltd",
+    "country": "India",
+    "city": "Pune",
+    "commodity": "PCBs",
+    "criticality": "standard",
+    "annualSpend": 480000
+  },
+  {
+    "id": "sup-042",
+    "name": "Bengaluru Circuit Co",
+    "country": "India",
+    "city": "Bengaluru",
+    "commodity": "Semiconductors",
+    "criticality": "standard",
+    "annualSpend": 350000
+  },
+  {
+    "id": "sup-043",
+    "name": "Chennai Component Works",
+    "country": "India",
+    "city": "Chennai",
+    "commodity": "Enclosures",
+    "criticality": "standard",
+    "annualSpend": 260000
+  },
+  {
+    "id": "sup-044",
+    "name": "Istanbul Metal Works",
+    "country": "Turkey",
+    "city": "Istanbul",
+    "commodity": "Metal Castings",
+    "criticality": "important",
+    "annualSpend": 540000
+  },
+  {
+    "id": "sup-045",
+    "name": "Bursa Connector Co",
+    "country": "Turkey",
+    "city": "Bursa",
+    "commodity": "Connectors",
+    "criticality": "standard",
+    "annualSpend": 190000
+  },
+  {
+    "id": "sup-046",
+    "name": "Manila Assembly Corp",
+    "country": "Philippines",
+    "city": "Manila",
+    "commodity": "Assembly Services",
+    "criticality": "standard",
+    "annualSpend": 310000
+  },
+  {
+    "id": "sup-047",
+    "name": "Cebu Cable Industries",
+    "country": "Philippines",
+    "city": "Cebu",
+    "commodity": "Cables",
+    "criticality": "standard",
+    "annualSpend": 150000
+  },
+  {
+    "id": "sup-048",
+    "name": "Bangkok HDD Supply",
+    "country": "Thailand",
+    "city": "Bangkok",
+    "commodity": "Hard Drives",
+    "criticality": "critical",
+    "annualSpend": 2100000
+  },
+  {
+    "id": "sup-049",
+    "name": "Chonburi Drive Works",
+    "country": "Thailand",
+    "city": "Chonburi",
+    "commodity": "Hard Drives",
+    "criticality": "important",
+    "annualSpend": 1300000
+  },
+  {
+    "id": "sup-050",
+    "name": "Arizona Specialty Components",
+    "country": "United States",
+    "city": "Phoenix",
+    "commodity": "Specialty Components",
+    "criticality": "critical",
+    "annualSpend": 1800000
+  }
+]
