@@ -1,0 +1,21 @@
+supplier,country,city,category,spend
+Alpha Components,china,,PCBs,500000
+Beta Electronics,CHINA,Shenzhen,Connectors,320000
+Gamma Corp,Chnia,,Semiconductors,1200000
+Delta Industries,usa,Dallas,Automotive Parts,890000
+Epsilon Ltd,United States of America,Chicago,Capacitors,670000
+Zeta GmbH,Gemrany,Berlin,Precision Sensors,1100000
+Eta Manufacturing,,Tokyo,Hard Drives,750000
+Theta Corp,Tiawan,Hsinchu,Semiconductors,2300000
+Iota Systems,taiwan,Taipei,PCBs,1800000
+Kappa Cables,Veitnam,Hanoi,Cables,290000
+Lambda Inc,South korea,Seoul,Battery Cells,1500000
+Mu Electronics,India,Mumbai,,430000
+Nu Supplies,Mexico,,,340000
+Xi Assembly,phillipines,Manila,Assembly Services,210000
+Omicron Parts,Turkey,Istanbul,Metal Castings,560000
+Pi Sensors,Japn,Osaka,Precision Sensors,980000
+Rho Enclosures,Brazil,Sao Paulo,Enclosures,440000
+Sigma Tech,china,Guangzhou,PCBs,610000
+,China,Shenzhen,Connectors,250000
+Upsilon Corp,China,Shenzhen,Connectors,250000
