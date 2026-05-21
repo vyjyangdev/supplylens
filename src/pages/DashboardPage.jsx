@@ -1,22 +1,45 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { useReactToPrint } from 'react-to-print'
 import { useSupplierData }  from '../hooks/useSupplierData'
 import useRiskScore          from '../hooks/useRiskScore'
 
 // Layout components
-import StatusBanner   from '../components/dashboard/StatusBanner'
-import RiskScoreGauge from '../components/dashboard/RiskScoreGauge'
-import TopRisks       from '../components/dashboard/TopRisks'
-import EmptyDashboard from '../components/dashboard/EmptyDashboard'
-import WorldMap       from '../components/map/WorldMap'
+import StatusBanner      from '../components/dashboard/StatusBanner'
+import RiskScoreGauge    from '../components/dashboard/RiskScoreGauge'
+import TopRisks          from '../components/dashboard/TopRisks'
+import EmptyDashboard    from '../components/dashboard/EmptyDashboard'
+import RiskSummaryPrint  from '../components/dashboard/RiskSummaryPrint'
+import WorldMap          from '../components/map/WorldMap'
 import ConcentrationChart from '../components/charts/ConcentrationChart'
-import EventFeed      from '../components/disruptions/EventFeed'
+import EventFeed         from '../components/disruptions/EventFeed'
+import allEvents         from '../data/events.json'
 
-// ─── Action buttons ───────────────────────────────────────────────────────────
+// ─── Action bar ───────────────────────────────────────────────────────────────
 
-function ActionBar({ onUpload }) {
+function ActionBar({ onUpload, onExportPDF, isPrinting }) {
   return (
     <div className="flex items-center gap-2 flex-wrap">
+      {/* Export PDF */}
+      <button
+        type="button"
+        onClick={onExportPDF}
+        disabled={isPrinting}
+        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-slate-200 text-slate-600 text-xs font-semibold hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1"
+      >
+        {isPrinting ? (
+          <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 16 16" fill="none" aria-hidden>
+            <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="2" strokeDasharray="20" strokeDashoffset="10"/>
+          </svg>
+        ) : (
+          <svg viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5" aria-hidden>
+            <path fillRule="evenodd" d="M7.25 1.5a.75.75 0 011.5 0v6.19l1.97-1.97a.75.75 0 111.06 1.06L8.53 10.03a.75.75 0 01-1.06 0L4.22 6.78a.75.75 0 011.06-1.06l1.97 1.97V1.5zM2.5 13.25a.75.75 0 01.75-.75h9.5a.75.75 0 010 1.5h-9.5a.75.75 0 01-.75-.75z" clipRule="evenodd"/>
+          </svg>
+        )}
+        {isPrinting ? 'Preparing…' : 'Export PDF'}
+      </button>
+
+      {/* Upload new data */}
       <button
         type="button"
         onClick={onUpload}
@@ -59,13 +82,8 @@ function StatsStrip({ stats }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
       {items.map(({ label, value }) => (
-        <div
-          key={label}
-          className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"
-        >
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            {label}
-          </p>
+        <div key={label} className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
           <p className="mt-1 text-2xl font-bold text-slate-900">{value}</p>
         </div>
       ))}
@@ -79,16 +97,6 @@ export default function DashboardPage() {
   const navigate = useNavigate()
   const { suppliers, source, fileName, stats, loadSampleData } = useSupplierData()
 
-  // Auto-load sample data only when source is still uninitialised
-  // (i.e. user came from landing "Try sample" — loadSampleData was already
-  // called there, so source will be 'sample' and this won't fire again)
-  useEffect(() => {
-    if (source === 'none') {
-      // Don't auto-load here — show the empty CTA instead so users
-      // who land directly on /dashboard can choose what they want.
-    }
-  }, [source])
-
   const {
     overallScore,
     riskLevel,
@@ -96,23 +104,36 @@ export default function DashboardPage() {
     topRisks,
     enrichedBreakdown,
     hhi,
-    matchedEvents,
   } = useRiskScore()
 
-  // ── Empty state (no data loaded) ──────────────────────────────────────────
+  // ── Print setup ────────────────────────────────────────────────────────────
+  const printRef = useRef(null)
+
+  const handlePrint = useReactToPrint({
+    contentRef: printRef,
+    documentTitle: `SupplyLens Risk Summary — ${new Date().toISOString().slice(0, 10)}`,
+    pageStyle: `
+      @page { size: A4 portrait; margin: 16mm; }
+      @media print {
+        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      }
+    `,
+  })
+
+  // ── Empty state ────────────────────────────────────────────────────────────
 
   if (source === 'none') {
     return (
       <div className="max-w-content mx-auto px-6 py-10">
         <EmptyDashboard
-          onLoadSample={() => { loadSampleData() }}
+          onLoadSample={loadSampleData}
           onUpload={() => navigate('/upload')}
         />
       </div>
     )
   }
 
-  // ── Loading (data is being computed — suppliers array briefly empty) ───────
+  // ── Loading ────────────────────────────────────────────────────────────────
 
   if (source !== 'none' && suppliers.length === 0) {
     return (
@@ -130,6 +151,20 @@ export default function DashboardPage() {
   return (
     <main className="max-w-content mx-auto px-6 py-8 space-y-6">
 
+      {/* ── Hidden print component — react-to-print copies this into iframe ── */}
+      <div style={{ position: 'absolute', left: '-9999px', top: 0, width: 794 }} aria-hidden>
+        <RiskSummaryPrint
+          ref={printRef}
+          overallScore={overallScore}
+          riskLevel={riskLevel}
+          components={components}
+          topRisks={topRisks}
+          stats={stats}
+          enrichedBreakdown={enrichedBreakdown}
+          fileName={fileName}
+        />
+      </div>
+
       {/* ── Page header ── */}
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div>
@@ -140,13 +175,17 @@ export default function DashboardPage() {
               : `Uploaded: ${fileName}`}
           </p>
         </div>
-        <ActionBar onUpload={() => navigate('/upload')} />
+        <ActionBar
+          onUpload={() => navigate('/upload')}
+          onExportPDF={handlePrint}
+          isPrinting={false}
+        />
       </div>
 
-      {/* ── Status banner (full width) ── */}
+      {/* ── Status banner ── */}
       <StatusBanner riskLevel={riskLevel} topRisks={topRisks} />
 
-      {/* ── Stats strip (full width) ── */}
+      {/* ── Stats strip ── */}
       <StatsStrip stats={stats} />
 
       {/* ── Row 1: Gauge + Top Risks ── */}
@@ -159,7 +198,7 @@ export default function DashboardPage() {
         <TopRisks risks={topRisks} />
       </div>
 
-      {/* ── Row 2: World Map (full width) ── */}
+      {/* ── Row 2: World Map ── */}
       <WorldMap suppliers={suppliers} />
 
       {/* ── Row 3: Concentration Chart + Disruption Feed ── */}
@@ -169,7 +208,7 @@ export default function DashboardPage() {
           hhi={hhi}
           totalSuppliers={stats.totalSuppliers}
         />
-        <EventFeed events={matchedEvents} />
+        <EventFeed suppliers={suppliers} allEvents={allEvents} />
       </div>
 
     </main>

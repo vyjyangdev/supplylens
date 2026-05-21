@@ -1,105 +1,172 @@
 /**
- * EventFeed — disruption event timeline (Phase 4 placeholder).
+ * EventFeed — disruption event list with matched/all toggle and show-more.
  *
  * Props:
- *   events   Array of matched events from calculateDisruptionScore()
- *            each: { id, date, title, description, countries, type,
- *                    severity, daysAgo, contribution }
+ *   suppliers   {object[]}  Supplier objects (each has a .country field — raw name or ISO3)
+ *   allEvents   {object[]}  All events from events.json
  */
+import { useState, useMemo } from 'react'
+import EventCard from './EventCard'
+import { normalizeCountry } from '../../utils/countryNormalizer'
 
-const SEVERITY_STYLE = {
-  critical: { dot: 'bg-red-500',    text: 'text-red-700',    label: 'Critical' },
-  high:     { dot: 'bg-orange-500', text: 'text-orange-700', label: 'High'     },
-  medium:   { dot: 'bg-amber-500',  text: 'text-amber-700',  label: 'Medium'   },
-  low:      { dot: 'bg-slate-400',  text: 'text-slate-600',  label: 'Low'      },
-}
+const PAGE_SIZE = 10
 
-function timeAgo(daysAgo) {
-  if (daysAgo === 0) return 'Today'
-  if (daysAgo === 1) return 'Yesterday'
-  if (daysAgo < 7)  return `${daysAgo}d ago`
-  if (daysAgo < 30) return `${Math.floor(daysAgo / 7)}w ago`
-  if (daysAgo < 365) return `${Math.floor(daysAgo / 30)}mo ago`
-  return `${Math.floor(daysAgo / 365)}y ago`
-}
+// ─── EventFeed ────────────────────────────────────────────────────────────────
 
-function EventRow({ event }) {
-  const s = SEVERITY_STYLE[event.severity] ?? SEVERITY_STYLE.low
+export default function EventFeed({ suppliers = [], allEvents = [] }) {
+  const [showAll,    setShowAll]    = useState(false)   // matched vs all events
+  const [showMore,   setShowMore]   = useState(false)   // expand beyond PAGE_SIZE
 
-  return (
-    <li className="flex gap-3 group">
-      {/* Timeline dot + line */}
-      <div className="flex flex-col items-center shrink-0 pt-1">
-        <span className={`w-2.5 h-2.5 rounded-full ${s.dot} ring-2 ring-white shrink-0`} aria-hidden />
-        <span className="w-px flex-1 bg-slate-100 mt-1 group-last:hidden" aria-hidden />
-      </div>
+  // ── Build supplier ISO3 set and count-per-country map ────────────────────
 
-      {/* Content */}
-      <div className="pb-4 min-w-0">
-        <div className="flex items-start justify-between gap-2 flex-wrap">
-          <p className="text-xs font-semibold text-slate-800 leading-snug">{event.title}</p>
-          <span className="text-[11px] text-slate-400 shrink-0 whitespace-nowrap">
-            {timeAgo(event.daysAgo)}
-          </span>
-        </div>
-        <p className="mt-0.5 text-xs text-slate-500 leading-relaxed line-clamp-2">
-          {event.description}
-        </p>
-        <div className="mt-1.5 flex items-center gap-2">
-          <span className={`text-[10px] font-semibold uppercase tracking-wide ${s.text}`}>
-            {s.label}
-          </span>
-          <span className="text-slate-200 text-xs">·</span>
-          <span className="text-[10px] text-slate-400 capitalize">
-            {event.type?.replace(/_/g, ' ')}
-          </span>
-          <span className="text-slate-200 text-xs">·</span>
-          <span className="text-[10px] text-slate-400">
-            +{event.contribution} pts
-          </span>
-        </div>
-      </div>
-    </li>
+  const { supplierISO3Set, supplierCountByISO3 } = useMemo(() => {
+    const set = new Set()
+    const map = {}
+    for (const s of suppliers) {
+      if (!s.country) continue
+      const iso3 = normalizeCountry(s.country)
+      if (!iso3) continue
+      set.add(iso3)
+      map[iso3] = (map[iso3] ?? 0) + 1
+    }
+    return { supplierISO3Set: set, supplierCountByISO3: map }
+  }, [suppliers])
+
+  // ── Sort all events newest-first ─────────────────────────────────────────
+
+  const sortedEvents = useMemo(
+    () => [...allEvents].sort((a, b) => new Date(b.date) - new Date(a.date)),
+    [allEvents],
   )
-}
 
-export default function EventFeed({ events = [] }) {
-  if (events.length === 0) {
-    return (
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 flex flex-col items-center justify-center min-h-[200px] text-center">
-        <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center mb-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-slate-400" aria-hidden>
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clipRule="evenodd" />
-          </svg>
-        </div>
-        <p className="text-sm font-semibold text-slate-600">No matched disruptions</p>
-        <p className="text-xs text-slate-400 mt-1">
-          No active events affect your supplier countries.
-        </p>
-      </div>
-    )
-  }
+  // ── Tag each event as matched / not matched ───────────────────────────────
+
+  const taggedEvents = useMemo(
+    () =>
+      sortedEvents.map(event => ({
+        event,
+        isMatched: (event.countries ?? []).some(iso3 => supplierISO3Set.has(iso3)),
+      })),
+    [sortedEvents, supplierISO3Set],
+  )
+
+  const matchedCount = taggedEvents.filter(t => t.isMatched).length
+
+  // ── Filter based on toggle ────────────────────────────────────────────────
+
+  const visibleTagged = showAll
+    ? taggedEvents
+    : taggedEvents.filter(t => t.isMatched)
+
+  const displayedTagged = showMore
+    ? visibleTagged
+    : visibleTagged.slice(0, PAGE_SIZE)
+
+  const hasMore = visibleTagged.length > PAGE_SIZE
+
+  // ── No matched events state ───────────────────────────────────────────────
+
+  const noMatches = matchedCount === 0 && !showAll
+
+  // ─── Render ───────────────────────────────────────────────────────────────
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
-      <div className="flex items-center justify-between mb-5">
-        <h2 className="text-base font-semibold text-slate-900">Active Disruptions</h2>
-        <span className="text-xs font-semibold text-slate-400 bg-slate-100 rounded-full px-2.5 py-0.5">
-          {events.length}
-        </span>
+    <div className="bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col">
+      {/* Header */}
+      <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-slate-100">
+        <div className="flex items-center gap-2">
+          <h2 className="text-base font-semibold text-slate-900">Disruptions</h2>
+          {matchedCount > 0 && (
+            <span className="text-xs font-semibold text-white bg-red-500 rounded-full px-2 py-0.5 leading-none">
+              {matchedCount}
+            </span>
+          )}
+        </div>
+
+        {/* Toggle */}
+        <button
+          type="button"
+          onClick={() => { setShowAll(v => !v); setShowMore(false) }}
+          className="text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+          aria-pressed={showAll}
+        >
+          {showAll ? 'Relevant only' : `Show all (${allEvents.length})`}
+        </button>
       </div>
 
-      <ul className="list-none" aria-label="Disruption event feed">
-        {events.slice(0, 8).map(event => (
-          <EventRow key={event.id} event={event} />
-        ))}
-      </ul>
+      {/* Body */}
+      <div className="flex-1 px-4 py-3">
+        {/* No matches empty state */}
+        {noMatches ? (
+          <div className="flex flex-col items-center justify-center py-10 text-center">
+            <span className="text-3xl mb-3" aria-hidden>✅</span>
+            <p className="text-sm font-semibold text-slate-700">
+              No recent disruptions affecting your supplier regions
+            </p>
+            <p className="text-xs text-slate-400 mt-1 max-w-xs">
+              None of the {allEvents.length} tracked events match your supplier countries.
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="mt-3 text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors"
+            >
+              Browse all events →
+            </button>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {/* Section label when showing all */}
+            {showAll && matchedCount > 0 && (
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 px-1 pb-1">
+                Relevant to your suppliers
+              </p>
+            )}
 
-      {events.length > 8 && (
-        <p className="mt-2 text-xs text-slate-400 text-center">
-          +{events.length - 8} more events affect your supply chain
-        </p>
-      )}
+            {displayedTagged.map(({ event, isMatched }) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                supplierCountByISO3={supplierCountByISO3}
+                isMatched={isMatched}
+              />
+            ))}
+
+            {/* Show more / show less */}
+            {hasMore && !showMore && (
+              <button
+                type="button"
+                onClick={() => setShowMore(true)}
+                className="w-full mt-2 py-2 text-xs font-medium text-slate-500 hover:text-slate-700 hover:bg-slate-50 rounded-lg transition-colors border border-dashed border-slate-200"
+              >
+                Show {visibleTagged.length - PAGE_SIZE} more event{visibleTagged.length - PAGE_SIZE !== 1 ? 's' : ''}
+              </button>
+            )}
+
+            {showMore && visibleTagged.length > PAGE_SIZE && (
+              <button
+                type="button"
+                onClick={() => setShowMore(false)}
+                className="w-full mt-2 py-2 text-xs font-medium text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                Show less ↑
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Footer — legend */}
+      <div className="px-4 pb-4 pt-2 border-t border-slate-50 flex items-center gap-4 flex-wrap">
+        <div className="flex items-center gap-1.5">
+          <div className="w-1 h-4 rounded-full bg-blue-500" />
+          <span className="text-[10px] text-slate-400">Affects your suppliers</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <div className="w-1 h-4 rounded-full bg-slate-200" />
+          <span className="text-[10px] text-slate-400">No overlap</span>
+        </div>
+      </div>
     </div>
   )
 }
