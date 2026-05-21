@@ -26,6 +26,12 @@ export default function Header() {
           <NavLink to="/methodology" className={navLinkClass}>
             Methodology
           </NavLink>
+          <NavLink
+            to="/upload"
+            className="ml-2 px-4 py-1.5 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Upload CSV
+          </NavLink>
         </nav>
       </div>
     </header>
