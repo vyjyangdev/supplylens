@@ -86,7 +86,7 @@ function RiskCard({ risk, index }) {
       <button
         type="button"
         onClick={() => setExpanded(v => !v)}
-        className="mt-3 flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+        className="mt-2 -mx-2 px-2 py-2 min-h-[36px] flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
         aria-expanded={expanded}
       >
         <svg

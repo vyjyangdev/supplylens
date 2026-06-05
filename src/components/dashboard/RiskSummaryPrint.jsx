@@ -139,6 +139,143 @@ function Stat({ label, value }) {
   )
 }
 
+// ─── GeoBarChart ─────────────────────────────────────────────────────────────
+
+const BAR_H      = 16   // height of each bar
+const BAR_GAP    = 8    // vertical gap between rows
+const LABEL_W    = 90   // px reserved for country name
+const VALUE_W    = 48   // px reserved for "18 (36%)" label on right
+const RISK_W     = 44   // px reserved for risk badge on far right
+const CHART_PAD  = 8    // left/right padding inside SVG
+const SCORE_FILL = {
+  LOW:      '#86EFAC',
+  MODERATE: '#FCD34D',
+  HIGH:     '#FDBA74',
+  CRITICAL: '#FCA5A5',
+}
+  LOW:      '#22C55E',
+  MODERATE: '#F59E0B',
+  HIGH:     '#F97316',
+  CRITICAL: '#EF4444',
+}
+
+function GeoBarChart({ rows }) {
+  if (!rows.length) return null
+
+  const maxPct    = Math.max(...rows.map(r => parseFloat(r.percentage) || 0), 1)
+  const rowHeight = BAR_H + BAR_GAP
+  const svgH      = rows.length * rowHeight - BAR_GAP + 4   // 4 px bottom padding
+  // bar track starts after the label, ends before value + risk labels
+  const trackX    = LABEL_W + CHART_PAD
+  const trackW    = 762 - LABEL_W - VALUE_W - RISK_W - CHART_PAD * 2
+
+  return (
+    <svg
+      width="100%"
+      viewBox={`0 0 762 ${svgH}`}
+      style={{ display: 'block', overflow: 'visible', maxHeight: 180 }}
+    >
+      {/* Row background alternating */}
+      {rows.map((row, i) => (
+        <rect
+          key={`bg-${i}`}
+          x={0} y={i * rowHeight}
+          width={762} height={BAR_H}
+          fill={i % 2 === 0 ? '#F8FAFC' : 'transparent'}
+          rx={2}
+        />
+      ))}
+
+      {/* Bars */}
+      {rows.map((row, i) => {
+        const pct   = parseFloat(row.percentage) || 0
+        const barW  = Math.max((pct / maxPct) * trackW, 3)
+        const y     = i * rowHeight
+        const lvl   = levelOf(row.composite ?? 0)
+        const fill  = SCORE_FILL[lvl]
+        const stroke= SCORE_STROKE[lvl]
+
+        return (
+          <g key={i}>
+            {/* Country label */}
+            <text
+              x={LABEL_W - 4} y={y + BAR_H / 2 + 1}
+              textAnchor="end" dominantBaseline="middle"
+              fontSize={10} fontWeight={600} fill="#0F172A"
+              fontFamily="Inter, Helvetica Neue, Arial, sans-serif"
+            >
+              {row.country}
+            </text>
+
+            {/* Track (background) */}
+            <rect
+              x={trackX} y={y + 1}
+              width={trackW} height={BAR_H - 2}
+              fill="#F1F5F9" rx={3}
+            />
+
+            {/* Filled bar */}
+            <rect
+              x={trackX} y={y + 1}
+              width={barW} height={BAR_H - 2}
+              fill={fill} stroke={stroke} strokeWidth={0.5} rx={3}
+            />
+
+            {/* 30% warning line */}
+            {trackW * (30 / maxPct) < trackW && (
+              <line
+                x1={trackX + trackW * (30 / maxPct)}
+                y1={y}
+                x2={trackX + trackW * (30 / maxPct)}
+                y2={y + BAR_H}
+                stroke="#EF4444" strokeWidth={0.8} strokeDasharray="2 2"
+              />
+            )}
+
+            {/* Percentage + count label */}
+            <text
+              x={trackX + trackW + 6} y={y + BAR_H / 2 + 1}
+              dominantBaseline="middle"
+              fontSize={9} fontWeight={600} fill="#475569"
+              fontFamily="Inter, Helvetica Neue, Arial, sans-serif"
+            >
+              {row.count} ({pct}%)
+            </text>
+
+            {/* Risk level badge (text) */}
+            <text
+              x={762 - 2} y={y + BAR_H / 2 + 1}
+              textAnchor="end" dominantBaseline="middle"
+              fontSize={8} fontWeight={700} fill={stroke}
+              fontFamily="Inter, Helvetica Neue, Arial, sans-serif"
+            >
+              {lvl}
+            </text>
+          </g>
+        )
+      })}
+
+      {/* 30% threshold label at top of chart */}
+      {(() => {
+        const lineX = trackX + trackW * (30 / maxPct)
+        if (lineX > trackX && lineX < trackX + trackW) {
+          return (
+            <text
+              x={lineX} y={-3}
+              textAnchor="middle"
+              fontSize={7} fill="#EF4444"
+              fontFamily="Inter, Helvetica Neue, Arial, sans-serif"
+            >
+              30% threshold
+            </text>
+          )
+        }
+        return null
+      })()}
+    </svg>
+  )
+}
+
 // ─── RiskSummaryPrint ─────────────────────────────────────────────────────────
 
 const RiskSummaryPrint = forwardRef(function RiskSummaryPrint(
@@ -339,7 +476,7 @@ const RiskSummaryPrint = forwardRef(function RiskSummaryPrint(
           )}
         </div>
 
-        {/* ── Geographic breakdown — top 5, compact chips ── */}
+        {/* ── Geographic breakdown — SVG bar chart + chips ── */}
         {enrichedBreakdown.length > 0 && (
           <div style={{ marginBottom: 12 }}>
             <div style={{
@@ -348,36 +485,12 @@ const RiskSummaryPrint = forwardRef(function RiskSummaryPrint(
               marginBottom: 6,
               display: 'flex', alignItems: 'center', gap: 8,
             }}>
-              <span>Geographic Breakdown (Top {Math.min(enrichedBreakdown.length, 5)})</span>
+              <span>Geographic Concentration (Top {Math.min(enrichedBreakdown.length, 6)})</span>
               <div style={{ flex: 1, height: 1, backgroundColor: '#E2E8F0' }} />
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-              {enrichedBreakdown.slice(0, 5).map((row, i) => {
-                const lvl = levelOf(row.composite ?? 0)
-                const c   = COLOR[lvl]
-                return (
-                  <div key={i} style={{
-                    border: `1px solid ${c.border}`,
-                    borderRadius: 5,
-                    padding: '4px 8px',
-                    backgroundColor: c.bg,
-                    minWidth: 100,
-                  }}>
-                    <div style={{ fontSize: 10, fontWeight: 700, color: '#0F172A' }}>
-                      {row.country}
-                    </div>
-                    <div style={{ fontSize: 9, color: '#64748B' }}>
-                      {row.count} supplier{row.count !== 1 ? 's' : ''} · {row.percentage}%
-                    </div>
-                    {row.composite != null && (
-                      <div style={{ fontSize: 8, color: c.text, fontWeight: 600, marginTop: 1 }}>
-                        Risk {row.composite.toFixed(0)}/100 · {lvl}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-            </div>
+
+            {/* ── Horizontal bar chart ── */}
+            <GeoBarChart rows={enrichedBreakdown.slice(0, 6)} />
           </div>
         )}
 

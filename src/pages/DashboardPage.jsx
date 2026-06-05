@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useReactToPrint } from 'react-to-print'
 import { useSupplierData }  from '../hooks/useSupplierData'
@@ -10,6 +10,7 @@ import RiskScoreGauge    from '../components/dashboard/RiskScoreGauge'
 import TopRisks          from '../components/dashboard/TopRisks'
 import EmptyDashboard    from '../components/dashboard/EmptyDashboard'
 import RiskSummaryPrint  from '../components/dashboard/RiskSummaryPrint'
+import RiskAdvisor       from '../components/dashboard/RiskAdvisor'
 import WorldMap          from '../components/map/WorldMap'
 import ConcentrationChart from '../components/charts/ConcentrationChart'
 import EventFeed         from '../components/disruptions/EventFeed'
@@ -104,7 +105,20 @@ export default function DashboardPage() {
     topRisks,
     enrichedBreakdown,
     hhi,
+    matchedEvents,
   } = useRiskScore()
+
+  // ── Brief calculation skeleton — shows for one frame after suppliers change ─
+  const [isCalculating, setIsCalculating] = useState(false)
+  const prevSuppliersRef = useRef(suppliers)
+  useEffect(() => {
+    if (prevSuppliersRef.current !== suppliers && suppliers.length > 0) {
+      setIsCalculating(true)
+      const id = setTimeout(() => setIsCalculating(false), 400)
+      prevSuppliersRef.current = suppliers
+      return () => clearTimeout(id)
+    }
+  }, [suppliers])
 
   // ── Print setup ────────────────────────────────────────────────────────────
   const printRef = useRef(null)
@@ -124,12 +138,16 @@ export default function DashboardPage() {
 
   if (source === 'none') {
     return (
-      <div className="max-w-content mx-auto px-6 py-10">
-        <EmptyDashboard
-          onLoadSample={loadSampleData}
-          onUpload={() => navigate('/upload')}
-        />
-      </div>
+      <>
+        <div className="max-w-content mx-auto px-6 py-10">
+          <EmptyDashboard
+            onLoadSample={loadSampleData}
+            onUpload={() => navigate('/upload')}
+          />
+        </div>
+        {/* Advisor visible on empty state — shows "upload first" message */}
+        <RiskAdvisor hasData={false} />
+      </>
     )
   }
 
@@ -137,80 +155,119 @@ export default function DashboardPage() {
 
   if (source !== 'none' && suppliers.length === 0) {
     return (
-      <div className="max-w-content mx-auto px-6 py-10 flex items-center justify-center min-h-[50vh]">
-        <div className="flex flex-col items-center gap-3 text-slate-400">
-          <div className="w-8 h-8 border-2 border-slate-200 border-t-blue-500 rounded-full animate-spin" />
-          <p className="text-sm">Loading supplier data…</p>
+      <>
+        <div className="max-w-content mx-auto px-6 py-10 flex items-center justify-center min-h-[50vh]">
+          <div className="flex flex-col items-center gap-3 text-slate-400">
+            <div className="w-8 h-8 border-2 border-slate-200 border-t-blue-500 rounded-full animate-spin" />
+            <p className="text-sm">Loading supplier data…</p>
+          </div>
         </div>
-      </div>
+        <RiskAdvisor hasData={false} />
+      </>
     )
   }
 
   // ── Full dashboard ─────────────────────────────────────────────────────────
 
   return (
-    <main className="max-w-content mx-auto px-6 py-8 space-y-6">
+    <>
+      <main className="max-w-content mx-auto px-6 py-8 space-y-6">
 
-      {/* ── Hidden print component — react-to-print copies this into iframe ── */}
-      <div style={{ position: 'absolute', left: '-9999px', top: 0, width: 794 }} aria-hidden>
-        <RiskSummaryPrint
-          ref={printRef}
-          overallScore={overallScore}
-          riskLevel={riskLevel}
-          components={components}
-          topRisks={topRisks}
-          stats={stats}
-          enrichedBreakdown={enrichedBreakdown}
-          fileName={fileName}
-        />
-      </div>
-
-      {/* ── Page header ── */}
-      <div className="flex items-start justify-between gap-4 flex-wrap">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900">Supply Chain Dashboard</h1>
-          <p className="mt-1 text-sm text-slate-500">
-            {source === 'sample'
-              ? 'Showing sample data · 50 suppliers across 12 countries'
-              : `Uploaded: ${fileName}`}
-          </p>
+        {/* ── Hidden print component — react-to-print copies this into iframe ── */}
+        <div style={{ position: 'absolute', left: '-9999px', top: 0, width: 794 }} aria-hidden>
+          <RiskSummaryPrint
+            ref={printRef}
+            overallScore={overallScore}
+            riskLevel={riskLevel}
+            components={components}
+            topRisks={topRisks}
+            stats={stats}
+            enrichedBreakdown={enrichedBreakdown}
+            fileName={fileName}
+          />
         </div>
-        <ActionBar
-          onUpload={() => navigate('/upload')}
-          onExportPDF={handlePrint}
-          isPrinting={false}
-        />
-      </div>
 
-      {/* ── Status banner ── */}
-      <StatusBanner riskLevel={riskLevel} topRisks={topRisks} />
+        {/* ── Page header ── */}
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">Supply Chain Dashboard</h1>
+            <p className="mt-1 text-sm text-slate-500">
+              {source === 'sample'
+                ? 'Showing sample data · 50 suppliers across 12 countries'
+                : `Uploaded: ${fileName}`}
+            </p>
+          </div>
+          <ActionBar
+            onUpload={() => navigate('/upload')}
+            onExportPDF={handlePrint}
+            isPrinting={false}
+          />
+        </div>
 
-      {/* ── Stats strip ── */}
-      <StatsStrip stats={stats} />
+        {/* ── Status banner ── */}
+        <StatusBanner riskLevel={riskLevel} topRisks={topRisks} />
 
-      {/* ── Row 1: Gauge + Top Risks ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
-        <RiskScoreGauge
-          overallScore={overallScore}
-          riskLevel={riskLevel}
-          components={components}
-        />
-        <TopRisks risks={topRisks} />
-      </div>
+        {/* ── Stats strip ── */}
+        <StatsStrip stats={stats} />
 
-      {/* ── Row 2: World Map ── */}
-      <WorldMap suppliers={suppliers} />
+        {/* ── Row 1: Gauge + Top Risks — skeleton while risk scores compute ── */}
+        {isCalculating ? (
+          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start animate-pulse">
+            {/* Gauge skeleton */}
+            <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 h-64 flex items-center justify-center">
+              <div className="w-40 h-40 rounded-full bg-slate-100 flex items-center justify-center">
+                <div className="w-6 h-6 border-2 border-slate-200 border-t-blue-400 rounded-full animate-spin" />
+              </div>
+            </div>
+            {/* Top Risks skeleton */}
+            <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 space-y-4">
+              <div className="h-4 bg-slate-100 rounded w-1/3" />
+              {[1,2,3].map(i => (
+                <div key={i} className="space-y-2 pb-4 border-b border-slate-100 last:border-0">
+                  <div className="h-3 bg-slate-100 rounded w-2/3" />
+                  <div className="h-3 bg-slate-100 rounded w-full" />
+                  <div className="h-3 bg-slate-100 rounded w-4/5" />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
+            <RiskScoreGauge
+              overallScore={overallScore}
+              riskLevel={riskLevel}
+              components={components}
+            />
+            <TopRisks risks={topRisks} />
+          </div>
+        )}
 
-      {/* ── Row 3: Concentration Chart + Disruption Feed ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <ConcentrationChart
-          breakdown={enrichedBreakdown}
-          hhi={hhi}
-          totalSuppliers={stats.totalSuppliers}
-        />
-        <EventFeed suppliers={suppliers} allEvents={allEvents} />
-      </div>
+        {/* ── Row 2: World Map ── */}
+        <WorldMap suppliers={suppliers} />
 
-    </main>
+        {/* ── Row 3: Concentration Chart + Disruption Feed ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+          <ConcentrationChart
+            breakdown={enrichedBreakdown}
+            hhi={hhi}
+            totalSuppliers={stats.totalSuppliers}
+          />
+          <EventFeed suppliers={suppliers} allEvents={allEvents} />
+        </div>
+
+      </main>
+
+      {/* ── Risk Advisor — fixed floating chat, always on top ── */}
+      <RiskAdvisor
+        hasData
+        overallScore={overallScore}
+        riskLevel={riskLevel}
+        components={components}
+        topRisks={topRisks}
+        enrichedBreakdown={enrichedBreakdown}
+        stats={stats}
+        matchedEvents={matchedEvents}
+      />
+    </>
   )
 }

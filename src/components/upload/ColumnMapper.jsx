@@ -135,57 +135,59 @@ function ChevronIcon({ className = '' }) {
 // ─── FieldRow ─────────────────────────────────────────────────────────────────
 
 function FieldRow({ field, headers, value, onChange, showError }) {
-  const isAutoMatched = value !== null
   const id = `field-${field.key}`
 
   return (
-    <div className="grid grid-cols-[200px_1fr_28px] items-center gap-3 py-2.5 border-b border-slate-100 last:border-0">
-      {/* Label */}
-      <label htmlFor={id} className="flex items-center gap-1.5 text-sm font-medium text-slate-700">
-        {field.label}
-        {field.required && (
-          <span className="text-red-500 font-bold" aria-label="required">*</span>
-        )}
-        {!field.required && (
-          <span className="text-xs font-normal text-slate-400">(optional)</span>
-        )}
-      </label>
+    <div className="py-2.5 border-b border-slate-100 last:border-0">
+      {/* Mobile: stack label above select. Desktop: 3-col grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr_28px] items-center gap-2 sm:gap-3">
+        {/* Label */}
+        <label htmlFor={id} className="flex items-center gap-1.5 text-sm font-medium text-slate-700">
+          {field.label}
+          {field.required && (
+            <span className="text-red-500 font-bold" aria-label="required">*</span>
+          )}
+          {!field.required && (
+            <span className="text-xs font-normal text-slate-400">(optional)</span>
+          )}
+        </label>
 
-      {/* Select */}
-      <div className="relative">
-        <select
-          id={id}
-          value={value ?? ''}
-          onChange={e => onChange(field.key, e.target.value || null)}
-          aria-label={`Map column to ${field.label}`}
-          className={[
-            'w-full appearance-none rounded-lg border px-3 py-2 pr-8 text-sm',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
-            'transition-colors',
-            showError && field.required && !value
-              ? 'border-red-400 bg-red-50 text-red-700'
-              : value
-                ? 'border-blue-300 bg-blue-50 text-slate-800'
-                : 'border-slate-300 bg-white text-slate-500',
-          ].join(' ')}
-        >
-          <option value="">— Select a column…</option>
-          {headers.map(h => (
-            <option key={h} value={h}>{h}</option>
-          ))}
-        </select>
-        <ChevronIcon className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-      </div>
+        {/* Select */}
+        <div className="relative">
+          <select
+            id={id}
+            value={value ?? ''}
+            onChange={e => onChange(field.key, e.target.value || null)}
+            aria-label={`Map column to ${field.label}`}
+            className={[
+              'w-full appearance-none rounded-lg border px-3 py-2.5 pr-8 text-sm min-h-[44px]',
+              'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
+              'transition-colors',
+              showError && field.required && !value
+                ? 'border-red-400 bg-red-50 text-red-700'
+                : value
+                  ? 'border-blue-300 bg-blue-50 text-slate-800'
+                  : 'border-slate-300 bg-white text-slate-500',
+            ].join(' ')}
+          >
+            <option value="">— Select a column…</option>
+            {headers.map(h => (
+              <option key={h} value={h}>{h}</option>
+            ))}
+          </select>
+          <ChevronIcon className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+        </div>
 
-      {/* Status indicator */}
-      <div className="flex justify-center">
-        {value ? (
-          <CheckIcon className="w-5 h-5 text-emerald-500" />
-        ) : field.required && showError ? (
-          <WarnIcon className="w-5 h-5 text-red-500" />
-        ) : (
-          <span className="w-5 h-5 rounded-full border-2 border-dashed border-slate-200" />
-        )}
+        {/* Status indicator */}
+        <div className="hidden sm:flex justify-center">
+          {value ? (
+            <CheckIcon className="w-5 h-5 text-emerald-500" />
+          ) : field.required && showError ? (
+            <WarnIcon className="w-5 h-5 text-red-500" />
+          ) : (
+            <span className="w-5 h-5 rounded-full border-2 border-dashed border-slate-200" />
+          )}
+        </div>
       </div>
     </div>
   )
@@ -447,7 +449,7 @@ function UnresolvedReview({ unresolvedSuppliers, resolvedCount, onContinue }) {
           type="button"
           onClick={handleContinue}
           className={[
-            'inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold',
+            'inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-xl text-sm font-semibold',
             'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2',
             'transition-colors shadow-sm',
@@ -473,6 +475,7 @@ function UnresolvedReview({ unresolvedSuppliers, resolvedCount, onContinue }) {
 export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady }) {
   const [mappings, setMappings]           = useState(() => buildInitialMappings(headers))
   const [showErrors, setShowErrors]       = useState(false)
+  const [dataError, setDataError]         = useState(null)   // validation errors after analyze
   const [step, setStep]                   = useState('mapping') // 'mapping' | 'review'
   const [resolvedSuppliers, setResolved]  = useState([])
   const [unresolvedSuppliers, setUnresolved] = useState([])
@@ -480,6 +483,7 @@ export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady
   const handleMappingChange = useCallback((key, value) => {
     setMappings(prev => ({ ...prev, [key]: value }))
     setShowErrors(false)
+    setDataError(null)
   }, [])
 
   const mappedCount = FIELDS.filter(f => mappings[f.key]).length
@@ -493,10 +497,20 @@ export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady
       return
     }
 
+    setDataError(null)
+
     // Build full supplier list (skip rows with empty supplier name)
     const allSuppliers = rows
       .filter(row => cellValue(row, mappings.supplierName) !== '')
       .map((row, i) => buildSupplierFromRow(row, mappings, i))
+
+    // Validate: must have at least one named supplier
+    if (allSuppliers.length === 0) {
+      setDataError(
+        'No rows with a supplier name were found. Check that you selected the correct "Supplier Name" column, or that your file has data rows below the header.'
+      )
+      return
+    }
 
     const resolved   = []
     const unresolved = []
@@ -508,6 +522,12 @@ export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady
       } else {
         unresolved.push(supplier)
       }
+    }
+
+    // Validate: at least 1 supplier must have a recognisable country
+    if (resolved.length === 0 && unresolved.length > 0) {
+      // Immediately show the review step rather than an error — let the user
+      // fix country names interactively.
     }
 
     if (unresolved.length === 0) {
@@ -522,7 +542,18 @@ export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady
   // ── Review step complete ───────────────────────────────────────────────────
 
   const handleReviewContinue = useCallback((fixedUnresolved) => {
-    onSuppliersReady([...resolvedSuppliers, ...fixedUnresolved])
+    const combined = [...resolvedSuppliers, ...fixedUnresolved]
+    // Require at least 1 supplier with a valid country before proceeding
+    const validCount = combined.filter(s => !s._countryUnresolved).length
+    if (validCount === 0) {
+      setStep('mapping')
+      setDataError(
+        'None of your suppliers could be matched to a recognised country. ' +
+        'Please correct at least one country name to run the risk analysis.'
+      )
+      return
+    }
+    onSuppliersReady(combined)
   }, [resolvedSuppliers, onSuppliersReady])
 
   // ─── Render ────────────────────────────────────────────────────────────────
@@ -560,8 +591,8 @@ export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady
         <>
           {/* ── Mapping UI ──────────────────────────────────────────────── */}
           <div className="rounded-xl border border-slate-200 divide-y divide-slate-100 overflow-hidden">
-            {/* Column headers */}
-            <div className="grid grid-cols-[200px_1fr_28px] gap-3 px-4 py-2 bg-slate-50">
+            {/* Column headers — hidden on mobile (layout is stacked) */}
+            <div className="hidden sm:grid sm:grid-cols-[180px_1fr_28px] gap-3 px-4 py-2 bg-slate-50">
               <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">SupplyLens field</span>
               <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Your column</span>
               <span />
@@ -581,7 +612,7 @@ export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady
             </div>
           </div>
 
-          {/* Validation error banner */}
+          {/* Required-fields validation error */}
           {showErrors && !requiredMapped && (
             <div
               role="alert"
@@ -592,6 +623,20 @@ export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady
                 <span className="font-semibold">Supplier Name</span> and{' '}
                 <span className="font-semibold">Country</span> are required before analysis.
               </p>
+            </div>
+          )}
+
+          {/* Data validation error (post-analyze) */}
+          {dataError && (
+            <div
+              role="alert"
+              className="flex items-start gap-2.5 p-4 rounded-xl bg-amber-50 border border-amber-200"
+            >
+              <WarnIcon className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-semibold text-amber-800">Could not run analysis</p>
+                <p className="mt-0.5 text-sm text-amber-700">{dataError}</p>
+              </div>
             </div>
           )}
 
@@ -609,7 +654,7 @@ export default function ColumnMapper({ headers, rows, fileName, onSuppliersReady
               disabled={showErrors && !requiredMapped}
               aria-label="Analyze my supply chain"
               className={[
-                'inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold',
+                'inline-flex items-center gap-2 min-h-[44px] px-6 py-3 rounded-xl text-sm font-semibold',
                 'transition-colors shadow-sm',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2',
                 requiredMapped
