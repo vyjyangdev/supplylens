@@ -147,12 +147,14 @@ const LABEL_W    = 90   // px reserved for country name
 const VALUE_W    = 48   // px reserved for "18 (36%)" label on right
 const RISK_W     = 44   // px reserved for risk badge on far right
 const CHART_PAD  = 8    // left/right padding inside SVG
+
 const SCORE_FILL = {
   LOW:      '#86EFAC',
   MODERATE: '#FCD34D',
   HIGH:     '#FDBA74',
   CRITICAL: '#FCA5A5',
 }
+const SCORE_STROKE = {
   LOW:      '#22C55E',
   MODERATE: '#F59E0B',
   HIGH:     '#F97316',
