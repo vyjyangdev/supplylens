@@ -2,7 +2,7 @@
 
 **Instant, client-side supply chain risk analysis. Upload a supplier CSV and get a composite risk score, geographic concentration map, disruption alerts, and AI-powered recommendations — in seconds, with no backend.**
 
-🔗 **[Live Demo](https://supplylens.vercel.app)**
+## 🔗 [Live Demo → supplylens-nine.vercel.app](https://supplylens-nine.vercel.app/)
 
 ---
 
@@ -146,7 +146,7 @@ On Vercel, add `ANTHROPIC_API_KEY` as a project environment variable in the dash
 Built by **Yujie Yang**
 
 - Portfolio: [yujieyang.com](https://yujieyang.com)
-- GitHub: [@vyj_yang](https://github.com/vyj-yang)
+- GitHub: [github.com/vyjyangdev](https://github.com/vyjyangdev)
 - LinkedIn: [linkedin.com/in/yujieyang](https://linkedin.com/in/yujieyang)
 
 ---
